@@ -1,0 +1,2926 @@
+# ===================================================================
+# 常见的Spring配置属性
+# COMMON SPRING BOOT PROPERTIES
+#
+# 这个示例文件是作为指南提供的。不要将其全部复制到您自己的应用程序中。
+# This sample file is provided as a guideline. Do NOT copy it in its
+# entirety to your own application.               ^^^
+# ===================================================================
+
+
+# ----------------------------------------
+# 核心属性
+# CORE PROPERTIES
+# ----------------------------------------
+# 启用调试日志。
+debug=false # Enable debug logs.
+# 启用跟踪日志。
+trace=false # Enable trace logs.
+
+# 日志
+# LOGGING
+# 日志配置文件的位置。例如,`classpath:logback.xml`对Logback。
+logging.config= # Location of the logging configuration file. For instance, `classpath:logback.xml` for Logback.
+# 日志异常转换字  记录异常时使用的转换字。
+logging.exception-conversion-word=%wEx # Conversion word used when logging exceptions.
+# 日志文件名(例如，`myapp.log`)。名称可以是确切的位置或相对于当前目录。
+logging.file= # Log file name (for instance, `myapp.log`). Names can be an exact location or relative to the current directory.
+# 要保存的存档日志文件的最大数量。只支持默认的logback设置。
+logging.file.max-history=0 # Maximum of archive log files to keep. Only supported with the default logback setup.
+# 最大日志文件大小。只支持默认的logback设置。
+logging.file.max-size=10MB # Maximum log file size. Only supported with the default logback setup.
+# 日志组可以同时快速更改多个日志记录器。例如,`logging.level.db = org.hibernate,org.springframework.jdbc`。
+logging.group.*= # Log groups to quickly change multiple loggers at the same time. For instance, `logging.level.db=org.hibernate,org.springframework.jdbc`.
+# 日志级别严重性映射。例如,`logging.level.org.springframework = DEBUG`。
+logging.level.*= # Log levels severity mapping. For instance, `logging.level.org.springframework=DEBUG`.
+# 日志文件的位置。例如,`/var/log`。
+logging.path= # Location of the log file. For instance, `/var/log`.
+# 附加模式输出到控制台。只支持默认的Logback设置。
+logging.pattern.console= # Appender pattern for output to the console. Supported only with the default Logback setup.
+# 日志日期格式的附加模式。只支持默认的Logback设置。
+logging.pattern.dateformat=yyyy-MM-dd HH:mm:ss.SSS # Appender pattern for log date format. Supported only with the default Logback setup.
+# 附加模式输出到一个文件。只支持默认的Logback设置。
+logging.pattern.file= # Appender pattern for output to a file. Supported only with the default Logback setup.
+# 日志级别的附加模式。只支持默认的Logback设置。
+logging.pattern.level=%5p # Appender pattern for log level. Supported only with the default Logback setup.
+# 在日志系统初始化时注册一个关闭钩子。
+logging.register-shutdown-hook=false # Register a shutdown hook for the logging system when it is initialized.
+
+# 面向切面编程
+# AOP
+# 添加注解@EnableAspectJAutoProxy
+spring.aop.auto=true # Add @EnableAspectJAutoProxy.
+# 是否要创建基于子类的(CGLIB)代理(true)，而不是标准的基于Java接口的代理(false)。
+spring.aop.proxy-target-class=true # Whether subclass-based (CGLIB) proxies are to be created (true), as opposed to standard Java interface-based proxies (false).
+
+# 应用程序上下文初始化器
+# IDENTITY (ContextIdApplicationContextInitializer)
+# 应用程序名称。
+spring.application.name= # Application name.
+
+# Spring应用程序管理JMX自动配置 <!-- JMX monitor --> ------> 开启Spring Boot Admin 是一个管理和监控Spring Boot 应用程序的开源软件。每个应用都认为是一个客户端，通过HTTP或者使用
+#                                                              Eureka注册到admin server中进行展示，Spring Boot Admin UI部分使用AngularJs将数据展示在前端。
+#                                                              Spring Boot Admin 是一个针对spring-boot的actuator接口进行UI美化封装的监控工具。他可以：在列表中浏览所有被监控spring-boot项目
+#                                                              的基本信息，详细的Health信息、内存信息、JVM信息、垃圾回收信息、各种配置信息（比如数据源、缓存列表和命中率）等，还可以直接修改logger的level。
+# ADMIN (SpringApplicationAdminJmxAutoConfiguration)
+# 是否为应用程序启用管理特性。
+spring.application.admin.enabled=false # Whether to enable admin features for the application.
+# 应用程序管理MBean的JMX名称
+spring.application.admin.jmx-name=org.springframework.boot:type=Admin,name=SpringApplication # JMX name of the application admin MBean.
+
+# 自动配置
+# AUTO-CONFIGURATION
+# 要排除的自动配置类。
+spring.autoconfigure.exclude= # Auto-configuration classes to exclude.
+
+# 2.0新特性 动态banner  启动springboot专属画面
+BANNER
+# banner文件编码。
+ring.banner.charset=UTF-8 # Banner file encoding.
+# banner 文本资源位置。
+ring.banner.location=classpath:banner.txt # Banner text resource location.
+# banner 图像文件位置(也可以使用jpg或png)。
+ring.banner.image.location=classpath:banner.gif # Banner image file location (jpg or png can also be used).
+# banner 图像的宽度在字符。
+ring.banner.image.width=76 # Width of the banner image in chars.
+# 在字符中的 banner 图像的高度(默认基于图像的高度)。
+ring.banner.image.height= # Height of the banner image in chars (default based on image height).
+# 在字符的左手图像边缘。
+ring.banner.image.margin=2 # Left hand image margin in chars.
+# 对于黑色的终端主题，图像是否应该倒转。
+ring.banner.image.invert=false # Whether images should be inverted for dark terminal themes.
+
+# spring核心
+# SPRING CORE
+# 是否跳过搜索BeanInfo类。
+spring.beaninfo.ignore=true # Whether to skip search of BeanInfo classes.
+
+# spring 缓存
+# SPRING CACHE (CacheProperties)
+# 如果基础缓存管理器支持的话，要创建的以逗号分隔的缓存名称列表
+spring.cache.cache-names= # Comma-separated list of cache names to create if supported by the underlying cache manager.
+# 用于创建缓存的规范。有关规范格式的详细信息，请参见coffinespec。
+spring.cache.caffeine.spec= # The spec to use to create caches. See CaffeineSpec for more details on the spec format.
+# 过期时间。默认情况下，记录永远不会过期。注意，这个值最终转换为秒。
+spring.cache.couchbase.expiration= # Entry expiration. By default the entries never expire. Note that this value is ultimately converted to seconds.
+# 用于初始化EhCache的配置文件的位置。
+spring.cache.ehcache.config= # The location of the configuration file to use to initialize EhCache.
+# 初始化Infinispan的配置文件的位置。
+spring.cache.infinispan.config= # The location of the configuration file to use to initialize Infinispan.
+# 用于初始化缓存管理器的配置文件的位置。
+spring.cache.jcache.config= # The location of the configuration file to use to initialize the cache manager.
+# 用于检索符合JSR-107的缓存管理器的CachingProvider实现的完全限定名称。 只有在类路径上有多个JSR-107实现可用时才需要。
+spring.cache.jcache.provider= # Fully qualified name of the CachingProvider implementation to use to retrieve the JSR-107 compliant cache manager. Needed only if more than one JSR-107 implementation is available on the classpath.
+# 允许缓存空值。
+spring.cache.redis.cache-null-values=true # Allow caching null values.
+# 配置key 的前缀
+spring.cache.redis.key-prefix= # Key prefix.
+# 过期时间。默认情况下，记录永远不会过期。
+spring.cache.redis.time-to-live= # Entry expiration. By default the entries never expire.
+# 写Redis时是否使用键前缀。
+spring.cache.redis.use-key-prefix=true # Whether to use the key prefix when writing to Redis.
+# 缓存类型。默认情况下，根据环境自动检测。
+spring.cache.type= # Cache type. By default, auto-detected according to the environment.
+
+# spring 配置 -- 只使用环境属性(ConfigFileApplicationListener)
+# SPRING CONFIG - using environment property only (ConfigFileApplicationListener)
+# 配置文件位置除了默认值。
+spring.config.additional-location= # Config file locations used in addition to the defaults.
+# 配置文件位置替换默认值。
+spring.config.location= # Config file locations that replace the defaults.
+# 配置文件的名字。
+spring.config.name=application # Config file name.
+
+# HAZELCAST 缓存中间件属性
+# HAZELCAST (HazelcastProperties)
+# 用于初始化Hazelcast的配置文件的位置。
+spring.hazelcast.config= # The location of the configuration file to use to initialize Hazelcast.
+
+# 项目信息
+# PROJECT INFORMATION (ProjectInfoProperties)
+# 文件编码。
+spring.info.build.encoding=UTF-8 # File encoding.
+# 生成 build-info.properties 文件的位置。
+spring.info.build.location=classpath:META-INF/build-info.properties # Location of the generated build-info.properties file.
+# 文件编码。----- git
+spring.info.git.encoding=UTF-8 # File encoding.
+# 生成 git.properties 文件的位置。 ----- git
+spring.info.git.location=classpath:git.properties # Location of the generated git.properties file.
+
+# <!-- JMX monitor --> ------> 开启Spring Boot Admin 是一个管理和监控Spring Boot 应用程序的开源软件。每个应用都认为是一个客户端，通过HTTP或者使用
+#                                Eureka注册到admin server中进行展示，Spring Boot Admin UI部分使用AngularJs将数据展示在前端。
+#                                Spring Boot Admin 是一个针对spring-boot的actuator接口进行UI美化封装的监控工具。他可以：在列表中浏览所有被监控spring-boot项目
+#                                的基本信息，详细的Health信息、内存信息、JVM信息、垃圾回收信息、各种配置信息（比如数据源、缓存列表和命中率）等，还可以直接修改logger的level。
+# JMX
+# JMX域名。
+spring.jmx.default-domain= # JMX domain name.
+# 将管理bean公开到JMX域。
+spring.jmx.enabled=true # Expose management beans to the JMX domain.
+# JMX监控应用的名称。
+spring.jmx.server=mbeanServer # MBeanServer bean name.
+# 是否应该确保唯一的运行时对象名称。
+spring.jmx.unique-names=false # Whether unique runtime object names should be ensured.
+
+# 邮件属性
+# Email (MailProperties)
+# 默认MimeMessage编码。
+spring.mail.default-encoding=UTF-8 # Default MimeMessage encoding.
+# SMTP服务器主机。例如,`smtp.example.com`。
+spring.mail.host= # SMTP server host. For instance, `smtp.example.com`.
+# 会话JNDI名称。设置时，优先于其他会话设置。
+spring.mail.jndi-name= # Session JNDI name. When set, takes precedence over other Session settings.
+# SMTP服务器的登录密码。
+spring.mail.password= # Login password of the SMTP server.
+# SMTP服务器端口号
+spring.mail.port= # SMTP server port.
+# 其他JavaMail会话属性。
+spring.mail.properties.*= # Additional JavaMail Session properties.
+# SMTP服务器使用的协议。
+spring.mail.protocol=smtp # Protocol used by the SMTP server.
+# 是否在启动时测试邮件服务器是否可用。
+spring.mail.test-connection=false # Whether to test that the mail server is available on startup.
+# 登录SMTP服务器的用户。
+spring.mail.username= # Login user of the SMTP server.
+
+# 应用程序设置
+# APPLICATION SETTINGS (SpringApplication)
+# 通过注册与现有定义同名的定义，是否允许bean定义覆盖。
+spring.main.allow-bean-definition-overriding=false # Whether bean definition overriding, by registering a definition with the same name as an existing definition, is allowed.
+# 用于在应用程序运行时显示 banner 的模式。
+spring.main.banner-mode=console # Mode used to display the banner when the application runs.
+# 要包含在ApplicationContext中的源(类名、包名或XML资源位置)。
+spring.main.sources= # Sources (class names, package names, or XML resource locations) to include in the ApplicationContext.
+# 标记显式请求特定类型的web应用程序。如果没有设置，则基于类路径自动检测。
+spring.main.web-application-type= # Flag to explicitly request a specific type of web application. If not set, auto-detected based on the classpath.
+
+# 文件编码
+# FILE ENCODING (FileEncodingApplicationListener)
+# 应用程序必须使用的字符编码。
+spring.mandatory-file-encoding= # Expected character encoding the application must use.
+
+# 国际化（消息来源属性）
+# INTERNATIONALIZATION (MessageSourceProperties)
+# 是否总是应用MessageFormat规则，甚至解析没有参数的消息。
+spring.messages.always-use-message-format=false # Whether to always apply the MessageFormat rules, parsing even messages without arguments.
+# 以逗号分隔的basenames列表(本质上是一个完全限定的classpath位置)，每个都遵循ResourceBundle约定，对基于斜杠的位置提供宽松的支持。
+spring.messages.basename=messages # Comma-separated list of basenames (essentially a fully-qualified classpath location), each following the ResourceBundle convention with relaxed support for slash based locations.
+# 加载资源包文件缓存持续时间。未设置时，包将永远缓存。如果没有指定持续时间后缀，则使用秒。
+spring.messages.cache-duration= # Loaded resource bundle files cache duration. When not set, bundles are cached forever. If a duration suffix is not specified, seconds will be used.
+# 消息包编码。
+spring.messages.encoding=UTF-8 # Message bundles encoding.
+# 如果没有找到特定区域设置的文件，是否返回系统区域设置。
+spring.messages.fallback-to-system-locale=true # Whether to fall back to the system Locale if no files for a specific Locale have been found.
+# 是否使用消息代码作为默认消息，而不是抛出“NoSuchMessageException”。仅在开发期间推荐。
+spring.messages.use-code-as-default-message=false # Whether to use the message code as the default message instead of throwing a "NoSuchMessageException". Recommended during development only.
+
+# 输出
+# OUTPUT
+# 配置ANSI输出。
+spring.output.ansi.enabled=detect # Configures the ANSI output.
+
+# PID文件（应用Pid文件写入器）
+# PID FILE (ApplicationPidFileWriter)
+# 如果使用ApplicationPidFileWriter但无法写入PID文件，则失败。
+spring.pid.fail-on-write-error= # Fails if ApplicationPidFileWriter is used but it cannot write the PID file.
+# 要写入的PID文件的位置(如果使用ApplicationPidFileWriter)。
+spring.pid.file= # Location of the PID file to write (if ApplicationPidFileWriter is used).
+
+# 配置文件
+# PROFILES
+# 活动概要文件的逗号分隔列表。可以被命令行开关覆盖。
+spring.profiles.active= # Comma-separated list of active profiles. Can be overridden by a command line switch.
+# 无条件地激活指定的逗号分隔的概要文件列表(如果使用YAML，则激活概要文件列表)。
+spring.profiles.include= # Unconditionally activate the specified comma-separated list of profiles (or list of profiles if using YAML).
+
+# 定时任务调度器(定时任务配置)
+# QUARTZ SCHEDULER (QuartzProperties)
+# 是否在初始化后自动启动调度器。
+spring.quartz.auto-startup=true # Whether to automatically start the scheduler after initialization.
+# SQL初始化脚本中单行注释的前缀。
+spring.quartz.jdbc.comment-prefix=-- # Prefix for single-line comments in SQL initialization scripts.
+# 数据库模式初始化模式。
+spring.quartz.jdbc.initialize-schema=embedded # Database schema initialization mode.
+# 用于初始化数据库模式的SQL文件的路径。
+spring.quartz.jdbc.schema=classpath:org/quartz/impl/jdbcjobstore/tables_@@platform@@.sql # Path to the SQL file to use to initialize the database schema.
+# 定时作业任务存储类型
+spring.quartz.job-store-type=memory # Quartz job store type.
+# 配置的作业是否应该覆盖现有的作业定义。
+spring.quartz.overwrite-existing-jobs=false # Whether configured jobs should overwrite existing job definitions.
+# 添加定时任务调度器属性。
+spring.quartz.properties.*= # Additional Quartz Scheduler properties.
+# 定时任务程序的名称。
+spring.quartz.scheduler-name=quartzScheduler # Name of the scheduler.
+# 初始化完成后延迟启动定时任务调度器。
+spring.quartz.startup-delay=0s # Delay after which the scheduler is started once initialization completes.
+# 是否等待运行作业完成后在关闭。
+spring.quartz.wait-for-jobs-to-complete-on-shutdown=false # Whether to wait for running jobs to complete on shutdown.
+
+# 事件处理异步框架---->Reactor 是 Spring 社区发布的基于事件驱动的异步框架，不仅解耦了程序之间的强调用关系，而且有效提升了系统的多线程并发处理能力。
+# REACTOR (ReactorCoreProperties)
+# 反应器是否应该在运行时收集stacktrace信息。
+spring.reactor.stacktrace-mode.enabled=false # Whether Reactor should collect stacktrace information at runtime.
+
+#
+# SENDGRID (SendGridAutoConfiguration)
+# SendGrid api密钥（用户名/密码替代）
+spring.sendgrid.api-key= # SendGrid API key.
+# SendGrid代理主机
+spring.sendgrid.proxy.host= # SendGrid proxy host.
+# SendGrid代理端口
+spring.sendgrid.proxy.port= # SendGrid proxy port.
+
+# TASK EXECUTION  (TaskExecutionProperties)
+spring.task.execution.pool.allow-core-thread-timeout=true # Whether core threads are allowed to time out. This enables dynamic growing and shrinking of the pool.
+spring.task.execution.pool.core-size=8 # Core number of threads.
+spring.task.execution.pool.keep-alive=60s # Time limit for which threads may remain idle before being terminated.
+spring.task.execution.pool.max-size= # Maximum allowed number of threads. If tasks are filling up the queue, the pool can expand up to that size to accommodate the load. Ignored if the queue is unbounded.
+spring.task.execution.pool.queue-capacity= # Queue capacity. An unbounded capacity does not increase the pool and therefore ignores the "max-size" property.
+spring.task.execution.thread-name-prefix=task- # Prefix to use for the names of newly created threads.
+
+# TASK SCHEDULING  (TaskSchedulingProperties)
+spring.task.scheduling.pool.size=1 # Maximum allowed number of threads.
+spring.task.scheduling.thread-name-prefix=scheduling- # Prefix to use for the names of newly created threads.
+
+# ----------------------------------------
+# 网络属性
+# WEB PROPERTIES
+# ----------------------------------------
+
+# 嵌入式服务器配置
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+# 服务器应绑定到的网络地址。
+server.address= # Network address to which the server should bind.
+# 是否启用响应压缩。
+server.compression.enabled=false # Whether response compression is enabled.
+# 从压缩中排除的用户代理列表。
+server.compression.excluded-user-agents= # Comma-separated list of user agents for which responses should not be compressed.
+# 应该压缩的MIME类型的逗号分隔列表。
+server.compression.mime-types=text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json,application/xml # Comma-separated list of MIME types that should be compressed.
+# 执行压缩所需的最小响应大小
+server.compression.min-response-size=2KB # Minimum "Content-Length" value that is required for compression to be performed.
+# 连接器在关闭连接之前等待另一个HTTP请求的时间。如果没有设置，则使用连接器特定于容器的默认值。使用-1值表示没有超时(即无限超时)。
+server.connection-timeout= # Time that connectors wait for another HTTP request before closing the connection. When not set, the connector's container-specific default is used. Use a value of -1 to indicate no (that is, an infinite) timeout.
+# 包括“异常”属性。
+server.error.include-exception=false # Include the "exception" attribute.
+# 何时包含`stacktrace`属性。
+server.error.include-stacktrace=never # When to include a "stacktrace" attribute.
+# 异常`controller`控制器的路径。
+server.error.path=/error # Path of the error controller.
+# 是否在发生服务器错误时启用浏览器中显示的默认错误页。
+server.error.whitelabel.enabled=true # Whether to enable the default error page displayed in browsers in case of a server error.
+# 如果当前环境支持HTTP/2,是否启用HTTP/2支持。
+server.http2.enabled=false # Whether to enable HTTP/2 support, if the current environment supports it.
+# ===================jetty 服务器===========================================
+# 要使用的接受器线程的数量。当值为-1时，默认情况下，接受器的数量来自操作系统环境。
+server.jetty.acceptors=-1 # Number of acceptor threads to use. When the value is -1, the default, the number of acceptors is derived from the operating environment.
+# 添加到日志中。
+server.jetty.accesslog.append=false # Append to log.
+# 请求日志的时间戳格式。
+server.jetty.accesslog.date-format=dd/MMM/yyyy:HH:mm:ss Z # Timestamp format of the request log.
+# 启用访问日志。
+server.jetty.accesslog.enabled=false # Enable access log.
+# 启用扩展NCSA格式。
+server.jetty.accesslog.extended-format=false # Enable extended NCSA format.
+# 日期格式要放在日志文件名中。
+server.jetty.accesslog.file-date-format= # Date format to place in log file name.
+# 日志文件名。如果没有指定，日志将重定向到`System.err`。
+server.jetty.accesslog.filename= # Log filename. If not specified, logs redirect to "System.err".
+# 请求日志的区域设置。
+server.jetty.accesslog.locale= # Locale of the request log.
+# 启用请求cookie的日志记录。
+server.jetty.accesslog.log-cookies=false # Enable logging of the request cookies.
+# 启用日志记录请求处理时间。
+server.jetty.accesslog.log-latency=false # Enable logging of request processing time.
+# 启用请求主机名的日志记录。
+server.jetty.accesslog.log-server=false # Enable logging of the request hostname.
+# 删除旋转日志文件前的天数。
+server.jetty.accesslog.retention-period=31 # Number of days before rotated log files are deleted.
+# 请求日志的时区。
+server.jetty.accesslog.time-zone=GMT # Timezone of the request log.
+# HTTP post或put内容的最大大小。
+server.jetty.max-http-post-size=200000B # Maximum size of the HTTP post or put content.
+# 要使用的选择器线程的数量。当值为-1(默认值)时，选择器的数量来自操作系统环境。
+server.jetty.selectors=-1 # Number of selector threads to use. When the value is -1, the default, the number of selectors is derived from the operating environment.
+# HTTP消息头的最大大小。
+server.max-http-header-size=8KB # Maximum size of the HTTP message header.
+# HTTP端口服务器。
+server.port=8080 # Server HTTP port.
+# 用于服务器响应标头的值(如果为空，则不发送标头)。
+server.server-header= # Value to use for the Server response header (if empty, no header is sent).
+# 是否应该将`x-转发-*`标头应用于HttpRequest。
+server.use-forward-headers= # Whether X-Forwarded-* headers should be applied to the HttpRequest.
+# Servlet上下文初始化参数。
+server.servlet.context-parameters.*= # Servlet context init parameters.
+# 应用程序的上下文路径。
+server.servlet.context-path= # Context path of the application.
+# 显示应用程序的名称。
+server.servlet.application-display-name=application # Display name of the application.
+# 用于jsp的servlet的类名。
+server.servlet.jsp.class-name=org.apache.jasper.servlet.JspServlet # Class name of the servlet to use for JSPs.
+# 用于配置JSP servlet的初始化参数。
+server.servlet.jsp.init-parameters.*= # Init parameters used to configure the JSP servlet.
+# JSP servlet是否注册。
+server.servlet.jsp.registered=true # Whether the JSP servlet is registered.
+# 对会话cookie进行注释。
+server.servlet.session.cookie.comment= # Comment for the session cookie.
+# 会话cookie的域。
+server.servlet.session.cookie.domain= # Domain for the session cookie.
+# 是否对会话cookie使用“HttpOnly”cookie。
+server.servlet.session.cookie.http-only= # Whether to use "HttpOnly" cookies for session cookies.
+# 会话cookie的最大年龄。如果没有指定持续时间后缀，将使用秒。
+server.servlet.session.cookie.max-age= # Maximum age of the session cookie. If a duration suffix is not specified, seconds will be used.
+# 会话cookie的名称。
+server.servlet.session.cookie.name= # Session cookie name.
+# 会话cookie的路径。
+server.servlet.session.cookie.path= # Path of the session cookie.
+# 是否总是将会话cookie标记为安全的。
+server.servlet.session.cookie.secure= # Whether to always mark the session cookie as secure.
+# 是否在重启之间持久化会话数据。
+server.servlet.session.persistent=false # Whether to persist session data between restarts.
+# 用于存储会话数据的目录。
+server.servlet.session.store-dir= # Directory used to store session data.
+# 会话超时。如果没有指定持续时间后缀，将使用秒。
+server.servlet.session.timeout=30m # Session timeout. If a duration suffix is not specified, seconds will be used.
+# 会话跟踪模式。
+server.servlet.session.tracking-modes= # Session tracking modes.
+# 支持SSL密码。
+server.ssl.ciphers= # Supported SSL ciphers.
+# 客户机身份验证是想要的(`want`)还是需要的(`need`)。需要信任存储。
+server.ssl.client-auth= # Whether client authentication is wanted ("want") or needed ("need"). Requires a trust store.
+# 是否启用SSL支持。
+server.ssl.enabled=true # Whether to enable SSL support.
+# 启用了SSL协议。
+server.ssl.enabled-protocols= # Enabled SSL protocols.
+# 在密钥存储区标识密钥的别名。
+server.ssl.key-alias= # Alias that identifies the key in the key store.
+# 用于访问密钥存储区的密钥的密码。
+server.ssl.key-password= # Password used to access the key in the key store.
+# 到持有SSL证书(通常是jks文件)的密钥存储库的路径。
+server.ssl.key-store= # Path to the key store that holds the SSL certificate (typically a jks file).
+# 用于访问密钥存储区的密码。
+server.ssl.key-store-password= # Password used to access the key store.
+# 密钥存储库的提供程序。
+server.ssl.key-store-provider= # Provider for the key store.
+# 密钥存储库的类型。
+server.ssl.key-store-type= # Type of the key store.
+# 使用SSL协议。
+server.ssl.protocol=TLS # SSL protocol to use.
+# 持有SSL证书的信任存储区。
+server.ssl.trust-store= # Trust store that holds SSL certificates.
+# 用于访问信任存储区的密码。
+server.ssl.trust-store-password= # Password used to access the trust store.
+# 信任存储区的提供程序。
+server.ssl.trust-store-provider= # Provider for the trust store.
+# 信任存储区的类型。
+server.ssl.trust-store-type= # Type of the trust store.
+# ===================tomcat 服务器===========================================
+# 当所有可能的请求处理线程都在使用时，传入连接请求的最大队列长度。
+server.tomcat.accept-count=100 # Maximum queue length for incoming connection requests when all possible request processing threads are in use.
+# 是否缓冲输出，使其仅定期刷新。
+server.tomcat.accesslog.buffered=true # Whether to buffer output such that it is flushed only periodically.
+# 创建日志文件的目录。可以是Tomcat基目录的绝对目录，也可以是相对目录。
+server.tomcat.accesslog.directory=logs # Directory in which log files are created. Can be absolute or relative to the Tomcat base dir.
+# 启用访问日志。
+server.tomcat.accesslog.enabled=false # Enable access log.
+# 日期格式要放在日志文件名中。
+server.tomcat.accesslog.file-date-format=.yyyy-MM-dd # Date format to place in the log file name.
+# 访问日志的格式模式。
+server.tomcat.accesslog.pattern=common # Format pattern for access logs.
+# 日志文件名前缀。
+server.tomcat.accesslog.prefix=access_log # Log file name prefix.
+# 是否将日期戳包含在文件名中推迟到旋转时间。
+server.tomcat.accesslog.rename-on-rotate=false # Whether to defer inclusion of the date stamp in the file name until rotate time.
+# 设置请求的IP地址、主机名、协议和端口的请求属性。
+server.tomcat.accesslog.request-attributes-enabled=false # Set request attributes for the IP address, Hostname, protocol, and port used for the request.
+# 是否启用访问日志旋转。
+server.tomcat.accesslog.rotate=true # Whether to enable access log rotation.
+# 日志文件名后缀。
+server.tomcat.accesslog.suffix=.log # Log file name suffix.
+# 逗号分隔的其他模式列表，这些模式与TLD扫描时要忽略的jar匹配。
+server.tomcat.additional-tld-skip-patterns= # Comma-separated list of additional patterns that match jars to ignore for TLD scanning.
+# backgroundProcess（后台流程）方法调用之间的延迟。如果没有指定持续时间后缀，将使用秒。
+server.tomcat.background-processor-delay=10s # Delay between the invocation of backgroundProcess methods. If a duration suffix is not specified, seconds will be used.
+# Tomcat基目录。如果未指定，则使用临时目录。
+server.tomcat.basedir= # Tomcat base directory. If not specified, a temporary directory is used.
+#
+server.tomcat.internal-proxies=10\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\
+        192\\.168\\.\\d{1,3}\\.\\d{1,3}|\\
+        169\\.254\\.\\d{1,3}\\.\\d{1,3}|\\
+        127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|\\
+        172\\.1[6-9]{1}\\.\\d{1,3}\\.\\d{1,3}|\\
+        172\\.2[0-9]{1}\\.\\d{1,3}\\.\\d{1,3}|\\
+        172\\.3[0-1]{1}\\.\\d{1,3}\\.\\d{1,3}\\
+        0:0:0:0:0:0:0:1\\
+        ::1 # Regular expression that matches proxies that are to be trusted.
+# 服务器在任何给定时间接受和处理的连接的最大数量。
+server.tomcat.max-connections=10000 # Maximum number of connections that the server accepts and processes at any given time.
+# HTTP post内容的最大大小。
+server.tomcat.max-http-post-size=2MB # Maximum size of the HTTP post content.
+# 最大数量的请求体吞吐量。
+server.tomcat.max-swallow-size=2MB # Maximum amount of request body to swallow.
+# 工作线程的最大数量。
+server.tomcat.max-threads=200 # Maximum amount of worker threads.
+# 工作线程的最小数量。
+server.tomcat.min-spare-threads=10 # Minimum amount of worker threads.
+# 用于覆盖原始端口值的HTTP头的名称。
+server.tomcat.port-header=X-Forwarded-Port # Name of the HTTP header used to override the original port value.
+# 保存传入协议的报头，通常命名为“x - forwarding - proto”。
+server.tomcat.protocol-header= # Header that holds the incoming protocol, usually named "X-Forwarded-Proto".
+# 协议头的值，指示传入请求是否使用SSL。
+server.tomcat.protocol-header-https-value=https # Value of the protocol header indicating whether the incoming request uses SSL.
+# 是否应该通过向路径追加`a/`来重定向对上下文根的请求。
+server.tomcat.redirect-context-root=true # Whether requests to the context root should be redirected by appending a / to the path.
+# 提取远程IP的HTTP报头的名称。例如,“X-FORWARDED-FOR”。
+server.tomcat.remote-ip-header= # Name of the HTTP header from which the remote IP is extracted. For instance, `X-FORWARDED-FOR`.
+# 此web应用程序是否允许静态资源缓存。
+server.tomcat.resource.allow-caching=true # Whether static resource caching is permitted for this web application.
+# 静态资源缓存的生存时间。
+server.tomcat.resource.cache-ttl= # Time-to-live of the static resource cache.
+# 用于解码URI的字符编码。
+server.tomcat.uri-encoding=UTF-8 # Character encoding to use to decode the URI.
+# 对sendRedirect调用生成的HTTP 1.1及以后的位置标头是否使用相对或绝对重定向。
+server.tomcat.use-relative-redirects= # Whether HTTP 1.1 and later location headers generated by a call to sendRedirect will use relative or absolute redirects.
+# ===================undertow 服务器===========================================
+# 反向访问日志目录。
+server.undertow.accesslog.dir= # Undertow access log directory.
+# 是否启用访问日志。
+server.undertow.accesslog.enabled=false # Whether to enable the access log.
+# 访问日志的格式模式。
+server.undertow.accesslog.pattern=common # Format pattern for access logs.
+# 日志文件名前缀。
+server.undertow.accesslog.prefix=access_log. # Log file name prefix.
+# 是否启用访问日志旋转。
+server.undertow.accesslog.rotate=true # Whether to enable access log rotation.
+# 日志文件名后缀。
+server.undertow.accesslog.suffix=log # Log file name suffix.
+# 每个缓冲区的大小。
+server.undertow.buffer-size= # Size of each buffer.
+# 是否在Java堆之外分配缓冲区。默认值来自JVM可用的最大内存量。
+server.undertow.direct-buffers= # Whether to allocate buffers outside the Java heap. The default is derived from the maximum amount of memory that is available to the JVM.
+# servlet过滤器是否应该在启动时初始化。
+server.undertow.eager-filter-init=true # Whether servlet filters should be initialized on startup.
+# 为工作程序创建的I/O线程的数量。默认值来自可用处理器的数量。
+server.undertow.io-threads= # Number of I/O threads to create for the worker. The default is derived from the number of available processors.
+# HTTP post内容的最大大小。当值为-1(默认值)时，大小是无限的。
+server.undertow.max-http-post-size=-1B # Maximum size of the HTTP post content. When the value is -1, the default, the size is unlimited.
+# 工作线程的数量。默认值是I/O线程数的8倍。
+server.undertow.worker-threads= # Number of worker threads. The default is 8 times the number of I/O threads.
+# ====================== undertow、tomcat、jetty三个服务器的性能对比========================================
+#                 Undertow和Tomcat的负载能力很接近但是Undertow比较好点，而Jetty远远不足。Undertow的I/O线程执行100% , Tomcat的执行也是100%两者不同的是
+#                 Undertow用于I/O的线程数是可以调整的，而Tomcat不可以，起码通过spring boot 无法调整，这样就制约了它的负载能力。而Jetty由于全局共享线程池所以，会存在Selector和
+#                 Acceptor阻塞情况，这样就制约了I/O操作。但是有个好处就是在负载不是太重的情况下可以使工作线程有更多占用资源来处理程序，提高了吞吐量。但是，总体而言这种差距是很小的。
+
+# FREEMARKER模板引擎(FREEMARKER 模板引擎配置)---->即一种基于模板和要改变的数据， 并用来生成输出文本(HTML网页，电子邮件，配置文件，源代码等)的通用工具。 它不是面向最终用户的，而是一个Java类库，是一款程序员可以嵌入他们所开发产品的组件。
+# FREEMARKER (FreeMarkerProperties)
+# 是否允许HttpServletRequest属性覆盖(隐藏)控制器生成的同名模型属性。
+spring.freemarker.allow-request-override=false # Whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name.
+# 是否允许HttpSession属性覆盖(隐藏)控制器生成的同名模型属性。
+spring.freemarker.allow-session-override=false # Whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name.
+# 是否启用模板引擎缓存。
+spring.freemarker.cache=false # Whether to enable template caching.
+# 模板引擎编码。
+spring.freemarker.charset=UTF-8 # Template encoding.
+# 是否检查模板引擎位置是否存在。
+spring.freemarker.check-template-location=true # Whether to check that the templates location exists.
+# `Content-Type`的值。
+spring.freemarker.content-type=text/html # Content-Type value.
+# 是否启用此技术的MVC视图解析。
+spring.freemarker.enabled=true # Whether to enable MVC view resolution for this technology.
+# 是否应该在与模板合并之前将所有请求属性添加到模型中。
+spring.freemarker.expose-request-attributes=false # Whether all request attributes should be added to the model prior to merging with the template.
+# 是否应该在与模板合并之前将所有HttpSession属性添加到模型中。
+spring.freemarker.expose-session-attributes=false # Whether all HttpSession attributes should be added to the model prior to merging with the template.
+# 是否在名称`springMacroRequestContext`下公开一个RequestContext以供Spring宏库使用。
+spring.freemarker.expose-spring-macro-helpers=true # Whether to expose a RequestContext for use by Spring's macro library, under the name "springMacroRequestContext".
+# 是否选择文件系统访问来加载模板。文件系统访问支持对模板更改的热检测。
+spring.freemarker.prefer-file-system-access=true # Whether to prefer file system access for template loading. File system access enables hot detection of template changes.
+# 前缀，用于在构建URL时查看名称。
+spring.freemarker.prefix= # Prefix that gets prepended to view names when building a URL.
+# 所有视图的RequestContext属性的名称。
+spring.freemarker.request-context-attribute= # Name of the RequestContext attribute for all views.
+# 传递到FreeMarker配置的著名的FreeMarker键。
+spring.freemarker.settings.*= # Well-known FreeMarker keys which are passed to FreeMarker's Configuration.
+# 在构建URL时附加到视图名称的后缀。
+spring.freemarker.suffix=.ftl # Suffix that gets appended to view names when building a URL.
+# 模板引擎路径的逗号分隔列表。
+spring.freemarker.template-loader-path=classpath:/templates/ # Comma-separated list of template paths.
+# 可以解析的视图名称的白列表。
+spring.freemarker.view-names= # White list of view names that can be resolved.
+
+# GROOVY模板引擎(GROOVY 模板引擎配置)
+# GROOVY TEMPLATES (GroovyTemplateProperties)
+# 是否允许HttpServletRequest属性覆盖(隐藏)控制器生成的同名模型属性。
+spring.groovy.template.allow-request-override=false # Whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name.
+# 是否允许HttpSession属性覆盖(隐藏)控制器生成的同名模型属性。
+spring.groovy.template.allow-session-override=false # Whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name.
+# 是否启用模板引擎缓存。
+spring.groovy.template.cache=false # Whether to enable template caching.
+# 模板引擎编码。
+spring.groovy.template.charset=UTF-8 # Template encoding.
+# 是否检查模板位置是否存在。
+spring.groovy.template.check-template-location=true # Whether to check that the templates location exists.
+# 解析 `GroovyMarkupConfigurer`
+spring.groovy.template.configuration.*= # See GroovyMarkupConfigurer
+# `Content-Type`的值。
+spring.groovy.template.content-type=text/html # Content-Type value.
+# 是否启用此技术的MVC视图解析。
+spring.groovy.template.enabled=true # Whether to enable MVC view resolution for this technology.
+# 是否应该在与模板合并之前将所有请求属性添加到模型中。
+spring.groovy.template.expose-request-attributes=false # Whether all request attributes should be added to the model prior to merging with the template.
+# 是否应该在与模板合并之前将所有HttpSession属性添加到模型中。
+spring.groovy.template.expose-session-attributes=false # Whether all HttpSession attributes should be added to the model prior to merging with the template.
+# 是否在名称`springMacroRequestContext`下公开一个RequestContext以供Spring宏库使用。
+spring.groovy.template.expose-spring-macro-helpers=true # Whether to expose a RequestContext for use by Spring's macro library, under the name "springMacroRequestContext".
+# 前缀，用于在构建URL时查看名称。
+spring.groovy.template.prefix= # Prefix that gets prepended to view names when building a URL.
+# 所有视图的RequestContext属性的名称。
+spring.groovy.template.request-context-attribute= # Name of the RequestContext attribute for all views.
+# 模板引擎路径。
+spring.groovy.template.resource-loader-path=classpath:/templates/ # Template path.
+# 在构建URL时附加到视图名称的后缀。
+spring.groovy.template.suffix=.tpl # Suffix that gets appended to view names when building a URL.
+# 可以解析的视图名称的白列表。
+spring.groovy.template.view-names= # White list of view names that can be resolved.
+
+# Spring HATEOAS  ()--->Spring HATEOAS提供了一些API，以便在使用Spring，特别是Spring MVC时，轻松创建遵循HATEOAS原则的REST表示。它试图解决的核心问题是链接创建和表示组装。
+# SPRING HATEOAS (HateoasProperties)
+# 是否应该将`application/hal+json`响应发送给接受`application/json`的请求。
+spring.hateoas.use-hal-as-default-json-media-type=true # Whether application/hal+json responses should be sent to requests that accept application/json.
+
+# HTTP （HTTP配置）
+# HTTP (HttpProperties)
+# 首选JSON映射器用于HTTP消息转换。默认情况下，根据环境自动检测。
+spring.http.converters.preferred-json-mapper= # Preferred JSON mapper to use for HTTP message conversion. By default, auto-detected according to the environment.
+# HTTP请求和响应的字符集。如果未显式设置，则添加到`Content-Type`标题。
+spring.http.encoding.charset=UTF-8 # Charset of HTTP requests and responses. Added to the "Content-Type" header if not set explicitly.
+# 是否启用http编码支持。
+spring.http.encoding.enabled=true # Whether to enable http encoding support.
+# 是否在HTTP请求和响应上强制编码到配置的字符集。
+spring.http.encoding.force= # Whether to force the encoding to the configured charset on HTTP requests and responses.
+# 是否在HTTP请求上强制编码到配置的字符集。未指定`force`时默认为true。
+spring.http.encoding.force-request= # Whether to force the encoding to the configured charset on HTTP requests. Defaults to true when "force" has not been specified.
+# 是否将编码强制到HTTP响应上配置的字符集。
+spring.http.encoding.force-response= # Whether to force the encoding to the configured charset on HTTP responses.
+# 用于编码映射的区域设置。
+spring.http.encoding.mapping= # Locale in which to encode mapping.
+# 是否允许在调试和跟踪级别记录(可能敏感的)请求细节。
+spring.http.log-request-details=false # Whether logging of (potentially sensitive) request details at DEBUG and TRACE level is allowed.
+
+# MULTIPART （MULTIPART配置） -----> 用SpringBoot框架来接收multipart/form-data文件上传
+# MULTIPART (MultipartProperties)
+# 是否支持多部分上传。
+spring.servlet.multipart.enabled=true # Whether to enable support of multipart uploads.
+# 阈值，之后将文件写入磁盘。
+spring.servlet.multipart.file-size-threshold=0B # Threshold after which files are written to disk.
+# 上传文件的中间位置。
+spring.servlet.multipart.location= # Intermediate location of uploaded files.
+# 最大文件大小。
+spring.servlet.multipart.max-file-size=1MB # Max file size.
+# 最大请求大小。
+spring.servlet.multipart.max-request-size=10MB # Max request size.
+# 在文件访问或参数访问时是否延迟解析多部分请求。
+spring.servlet.multipart.resolve-lazily=false # Whether to resolve the multipart request lazily at the time of file or parameter access.
+
+# JACKSON（JACKSON配置） ------>  json解析工具
+# JACKSON (JacksonProperties)
+# 日期格式字符串或完全限定的日期格式类名。例如，“yyyy-MM-dd HH:mm:ss”。
+spring.jackson.date-format= # Date format string or a fully-qualified date format class name. For instance, `yyyy-MM-dd HH:mm:ss`.
+# 控件在序列化过程中包含属性。配置了Jackson的JsonInclude中的一个值。包括枚举。
+spring.jackson.default-property-inclusion= # Controls the inclusion of properties during serialization. Configured with one of the values in Jackson's JsonInclude.Include enumeration.
+# 影响Java对象反序列化方式的Jackson `on/off` 特性。
+spring.jackson.deserialization.*= # Jackson on/off features that affect the way Java objects are deserialized.
+#Jackson `on/off` 生成器。
+spring.jackson.generator.*= # Jackson on/off features for generators.
+# Joda日期时间格式字符串。如果没有配置，“date-format”在配置为格式字符串时将用作回退。
+spring.jackson.joda-date-time-format= # Joda date time format string. If not configured, "date-format" is used as a fallback if it is configured with a format string.
+# 用于格式化的区域设置。
+spring.jackson.locale= # Locale used for formatting.
+# Jackson通用功能 `on/off` 功能。
+spring.jackson.mapper.*= # Jackson general purpose on/off features.
+# Jackson `on/off` 解析器。
+spring.jackson.parser.*= # Jackson on/off features for parsers.
+# Jackson命名策略中的一个常量。也可以是PropertyNamingStrategy子类的完全限定类名。
+spring.jackson.property-naming-strategy= # One of the constants on Jackson's PropertyNamingStrategy. Can also be a fully-qualified class name of a PropertyNamingStrategy subclass.
+# 影响Java对象序列化方式的Jackson `on/off` 特性。
+spring.jackson.serialization.*= # Jackson on/off features that affect the way Java objects are serialized.
+# 格式化日期时使用的时区。例如，“America/Los_Angeles”或“GMT+10”。
+spring.jackson.time-zone= #  Time zone used when formatting dates. For instance, "America/Los_Angeles" or "GMT+10".
+# Jackson可见性阈值，可用于限制自动检测哪些方法(和字段)。
+spring.jackson.visibility.*= # Jackson visibility thresholds that can be used to limit which methods (and fields) are auto-detected.
+
+# GSON（GSON配置） ----> 序列化工具  1.速度快，效率高（粗略测试下来，执行效率 gson > fastjson > jackson）
+#                                     2.对kotlin的支持更友好（Gson、Jackson、Fastjson这3种常见的Json库中，仅有Gson能兼容kotlin，其它2种均会使kotlin中is开头的字段在Json序列化后丢失。）
+# GSON (GsonProperties)
+# 序列化日期对象时使用的格式。
+spring.gson.date-format= # Format to use when serializing Date objects.
+# 是否禁用 `<`，`>` 等HTML字符的转义。
+spring.gson.disable-html-escaping= # Whether to disable the escaping of HTML characters such as '<', '>', etc.
+# 是否在序列化期间排除内部类。
+spring.gson.disable-inner-class-serialization= # Whether to exclude inner classes during serialization.
+# 是否启用复杂映射键(即非原语)的序列化。
+spring.gson.enable-complex-map-key-serialization= # Whether to enable serialization of complex map keys (i.e. non-primitives).
+# 是否将不考虑序列化或反序列化的所有字段排除在 `Expose` 注释之外。
+spring.gson.exclude-fields-without-expose-annotation= # Whether to exclude all fields from consideration for serialization or deserialization that do not have the "Expose" annotation.
+# 在序列化和反序列化期间应用于对象字段的命名策略。
+spring.gson.field-naming-policy= # Naming policy that should be applied to an object's field during serialization and deserialization.
+# 是否通过在输出前加上一些特殊文本来生成非可执行JSON。
+spring.gson.generate-non-executable-json= # Whether to generate non executable JSON by prefixing the output with some special text.
+# 是否对解析不符合RFC 4627的JSON宽大。
+spring.gson.lenient= # Whether to be lenient about parsing JSON that doesn't conform to RFC 4627.
+# 用于长类型和长类型的序列化策略。
+spring.gson.long-serialization-policy= # Serialization policy for Long and long types.
+# 是否输出适合用于漂亮打印的页面的序列化JSON。
+spring.gson.pretty-printing= # Whether to output serialized JSON that fits in a page for pretty printing.
+# 是否序列化 `null` 字段。
+spring.gson.serialize-nulls= # Whether to serialize null fields.
+
+# JERSEY(JERSEY配置)----> Jersey RESTful 框架是开源的RESTful框架, 实现了JAX-RS (JSR 311 & JSR 339) 规范。它扩展了JAX-RS 参考实现， 提供了更多的特性和工具， 可以进一步地简化 RESTful service 和 client 开发。
+# JERSEY (JerseyProperties)
+# 作为应用程序的基本URI的路径。如果指定，覆盖 `@ApplicationPath` 的值。
+spring.jersey.application-path= # Path that serves as the base URI for the application. If specified, overrides the value of "@ApplicationPath".
+# Jersey过滤器链顺序。
+spring.jersey.filter.order=0 # Jersey filter chain order.
+# 初始化要通过servlet或筛选器传递到Jersey的参数。
+spring.jersey.init.*= # Init parameters to pass to Jersey through the servlet or filter.
+# 加载Jersey servlet的启动优先级。
+spring.jersey.servlet.load-on-startup=-1 # Load on startup priority of the Jersey servlet.
+# Jersey集成类型。
+spring.jersey.type=servlet # Jersey integration type.
+
+# SPRING LDAP （LDAP配置）----->  LDAP是轻量目录访问协议，LDAP支持TCP/IP。LDAP（轻量级目录访问协议，Lightweight Directory Access Protocol)是实现提供被称为目录服务的信息服务。
+#                                  目录服务是一种特殊的数据库系统，其专门针对读取，浏览和搜索操作进行了特定的优化。目录一般用来包含描述性的，基于属性的信息并支持精细复杂的过滤能力。
+#                                  目录一般不支持通用数据库针对大量更新操作操作需要的复杂的事务管理或回滚策略。而目录服务的更新则一般都非常简单。
+#                                  目录可以存储包括个人信息、web链结、jpeg图像等各种信息。为了访问存储在目录中的信息，就需要使用运行在TCP/IP 之上的访问协议—LDAP。
+#                                  LDAP目录中的信息是是按照树型结构组织，具体信息存储在条目(entry)的数据结构中。条目相当于关系数据库中表的记录；
+# SPRING LDAP 是Spring的一个组件，实现对LDAP的操作。
+# SPRING LDAP (LdapProperties)
+# 只读操作是否应该使用匿名环境。
+spring.ldap.anonymous-read-only=false # Whether read-only operations should use an anonymous environment.
+# 所有操作都应起源于的基后缀。
+spring.ldap.base= # Base suffix from which all operations should originate.
+# LDAP规范设置。
+spring.ldap.base-environment.*= # LDAP specification settings.
+# 服务器的登录密码。
+spring.ldap.password= # Login password of the server.
+# 服务器的LDAP url。
+spring.ldap.urls= # LDAP URLs of the server.
+# 服务器的登录用户名。
+spring.ldap.username= # Login username of the server.
+
+# 嵌入式 LDAP （嵌入式 LDAP配置）
+# EMBEDDED LDAP (EmbeddedLdapProperties)
+# 基本DNs列表。
+spring.ldap.embedded.base-dn= # List of base DNs.
+# 嵌入式LDAP用户名。
+spring.ldap.embedded.credential.username= # Embedded LDAP username.
+# 嵌入式LDAP密码。
+spring.ldap.embedded.credential.password= # Embedded LDAP password.
+# 模式(LDIF)脚本资源引用。
+spring.ldap.embedded.ldif=classpath:schema.ldif # Schema (LDIF) script resource reference.
+# 嵌入式LDAP端口。
+spring.ldap.embedded.port=0 # Embedded LDAP port.
+# 是否启用LDAP模式验证。
+spring.ldap.embedded.validation.enabled=true # Whether to enable LDAP schema validation.
+# 到自定义模式的路径。
+spring.ldap.embedded.validation.schema= # Path to the custom schema.
+
+# MUSTACHE TEMPLATES（MUSTACHE 模板引擎配置）
+# MUSTACHE TEMPLATES (MustacheAutoConfiguration)
+# 是否允许HttpServletRequest属性覆盖(隐藏)控制器生成的同名模型属性。
+spring.mustache.allow-request-override=false # Whether HttpServletRequest attributes are allowed to override (hide) controller generated model attributes of the same name.
+# 是否允许HttpSession属性覆盖(隐藏)控制器生成的同名模型属性。
+spring.mustache.allow-session-override=false # Whether HttpSession attributes are allowed to override (hide) controller generated model attributes of the same name.
+# 是否启用模板缓存。
+spring.mustache.cache=false # Whether to enable template caching.
+# 模板编码。
+spring.mustache.charset=UTF-8 # Template encoding.
+# 是否检查模板位置是否存在。
+spring.mustache.check-template-location=true # Whether to check that the templates location exists.
+# 内容类型的值。
+spring.mustache.content-type=text/html # Content-Type value.
+# 是否启用此技术的MVC视图解析。
+spring.mustache.enabled=true # Whether to enable MVC view resolution for this technology.
+# 是否应该在与模板合并之前将所有请求属性添加到模型中。
+spring.mustache.expose-request-attributes=false # Whether all request attributes should be added to the model prior to merging with the template.
+# 是否应该在与模板合并之前将所有HttpSession属性添加到模型中。
+spring.mustache.expose-session-attributes=false # Whether all HttpSession attributes should be added to the model prior to merging with the template.
+# 是否在名称“springMacroRequestContext”下公开一个RequestContext以供Spring宏库使用。
+spring.mustache.expose-spring-macro-helpers=true # Whether to expose a RequestContext for use by Spring's macro library, under the name "springMacroRequestContext".
+# 用于模板名称的前缀。
+spring.mustache.prefix=classpath:/templates/ # Prefix to apply to template names.
+# 所有视图的RequestContext属性的名称。
+spring.mustache.request-context-attribute= # Name of the RequestContext attribute for all views.
+# 用于模板名称的后缀。
+spring.mustache.suffix=.mustache # Suffix to apply to template names.
+# 可以解析的视图名称的白列表。
+spring.mustache.view-names= # White list of view names that can be resolved.
+
+# SPRING MVC（web配置）
+# SPRING MVC (WebMvcProperties)
+# 异步请求处理超时前的时间。
+spring.mvc.async.request-timeout= # Amount of time before asynchronous request handling times out.
+# 是否应该使用请求参数(默认为“格式”)来确定所请求的媒体类型。
+spring.mvc.contentnegotiation.favor-parameter=false # Whether a request parameter ("format" by default) should be used to determine the requested media type.
+# 是否应该使用URL路径中的路径扩展来确定请求的媒体类型。
+spring.mvc.contentnegotiation.favor-path-extension=false # Whether the path extension in the URL path should be used to determine the requested media type.
+# 将文件扩展名映射到用于内容协商的媒体类型。例如，yml to text/yaml。
+spring.mvc.contentnegotiation.media-types.*= # Map file extensions to media types for content negotiation. For instance, yml to text/yaml.
+# 启用 `favor-parameter` 时要使用的查询参数名称。
+spring.mvc.contentnegotiation.parameter-name= # Query parameter name to use when "favor-parameter" is enabled.
+# 使用日期格式。例如, `dd/MM/yyyy` 。
+spring.mvc.date-format= # Date format to use. For instance, `dd/MM/yyyy`.
+# 是否将跟踪请求分派给FrameworkServlet doService方法。
+spring.mvc.dispatch-trace-request=false # Whether to dispatch TRACE requests to the FrameworkServlet doService method.
+# 是否将选项请求分派给FrameworkServlet doService方法。
+spring.mvc.dispatch-options-request=true # Whether to dispatch OPTIONS requests to the FrameworkServlet doService method.
+# 是否启用favicon.ico的分辨率。
+spring.mvc.favicon.enabled=true # Whether to enable resolution of favicon.ico.
+# 是否启用Spring的FormContentFilter过滤器。
+spring.mvc.formcontent.filter.enabled=true # Whether to enable Spring's FormContentFilter.
+# 是否启用Spring的HiddenHttpMethodFilter过滤器。
+spring.mvc.hiddenmethod.filter.enabled=true # Whether to enable Spring's HiddenHttpMethodFilter.
+# 在重定向场景中是否应该忽略 `默认` 模型的内容。
+spring.mvc.ignore-default-model-on-redirect=true # Whether the content of the "default" model should be ignored during redirect scenarios.
+# 场所使用。默认情况下，该区域设置被 `Accept-Language` 标头覆盖。
+spring.mvc.locale= # Locale to use. By default, this locale is overridden by the "Accept-Language" header.
+# 定义如何解析区域设置。
+spring.mvc.locale-resolver=accept-header # Define how the locale should be resolved.
+# 是否启用 `HandlerExceptionResolver` 解决的异常的警告日志记录，但 `DefaultHandlerExceptionResolver` 除外。
+spring.mvc.log-resolved-exception=false # Whether to enable warn logging of exceptions resolved by a "HandlerExceptionResolver", except for "DefaultHandlerExceptionResolver".
+# 消息代码的格式化策略。例如, `PREFIX_ERROR_CODE` 。
+spring.mvc.message-codes-resolver-format= # Formatting strategy for message codes. For instance, `PREFIX_ERROR_CODE`.
+# 后缀模式匹配是否只对注册为 `spring.mvc.content协商.media-types.*` 的扩展有效?
+spring.mvc.pathmatch.use-registered-suffix-pattern=false # Whether suffix pattern matching should work only against extensions registered with "spring.mvc.contentnegotiation.media-types.*".
+# 当模式与请求匹配时，是否使用后缀模式匹配( `.*` )。
+spring.mvc.pathmatch.use-suffix-pattern=false # Whether to use suffix pattern match (".*") when matching patterns to requests.
+# 加载分派器servlet的启动优先级。
+spring.mvc.servlet.load-on-startup=-1 # Load on startup priority of the dispatcher servlet.
+# 调度程序servlet的路径。
+spring.mvc.servlet.path=/ # Path of the dispatcher servlet.
+# 用于静态资源的路径模式。
+spring.mvc.static-path-pattern=/** # Path pattern used for static resources.
+# 如果没有找到处理程序来处理请求，是否应该抛出 `NoHandlerFoundException` 。
+spring.mvc.throw-exception-if-no-handler-found=false # Whether a "NoHandlerFoundException" should be thrown if no Handler was found to process a request.
+# Spring MVC视图前缀。
+spring.mvc.view.prefix= # Spring MVC view prefix.
+# Spring MVC视图后缀。
+spring.mvc.view.suffix= # Spring MVC view suffix.
+
+# SPRING RESOURCES HANDLING （静态路径下的配置）
+# SPRING RESOURCES HANDLING (ResourceProperties)
+# 是否启用默认资源处理。
+spring.resources.add-mappings=true # Whether to enable default resource handling.
+# 指示响应消息是针对单个用户的，不能由共享缓存存储。
+spring.resources.cache.cachecontrol.cache-private= # Indicate that the response message is intended for a single user and must not be stored by a shared cache.
+# 指示任何缓存都可以存储响应。
+spring.resources.cache.cachecontrol.cache-public= # Indicate that any cache may store the response.
+# 应该缓存响应的最大时间，如果没有指定持续时间后缀，则以秒为单位。
+spring.resources.cache.cachecontrol.max-age= # Maximum time the response should be cached, in seconds if no duration suffix is not specified.
+# 指示一旦缓存过期，在未与服务器重新验证之前，缓存不能使用响应。
+spring.resources.cache.cachecontrol.must-revalidate= # Indicate that once it has become stale, a cache must not use the response without re-validating it with the server.
+# 指示只有在与服务器重新验证时才能重用缓存的响应。
+spring.resources.cache.cachecontrol.no-cache= # Indicate that the cached response can be reused only if re-validated with the server.
+# 指示在任何情况下都不要缓存响应。
+spring.resources.cache.cachecontrol.no-store= # Indicate to not cache the response in any case.
+# 指示中介(缓存和其他)它们不应该转换响应内容。
+spring.resources.cache.cachecontrol.no-transform= # Indicate intermediaries (caches and others) that they should not transform the response content.
+# 意思与`must-revalidate`指令相同，只是它不适用于私有缓存。
+spring.resources.cache.cachecontrol.proxy-revalidate= # Same meaning as the "must-revalidate" directive, except that it does not apply to private caches.
+# 共享缓存应该缓存响应的最大时间，如果没有指定持续时间后缀，则以秒为单位。
+spring.resources.cache.cachecontrol.s-max-age= # Maximum time the response should be cached by shared caches, in seconds if no duration suffix is not specified.
+# 遇到错误时可能使用响应的最大时间，如果没有指定持续时间后缀，则以秒为单位。
+spring.resources.cache.cachecontrol.stale-if-error= # Maximum time the response may be used when errors are encountered, in seconds if no duration suffix is not specified.
+# 在响应变陈旧之后可以提供的最长时间，如果没有指定持续时间后缀，则以秒为单位。
+spring.resources.cache.cachecontrol.stale-while-revalidate= # Maximum time the response can be served after it becomes stale, in seconds if no duration suffix is not specified.
+# 资源处理程序提供的资源的缓存周期。如果没有指定持续时间后缀，将使用秒。
+spring.resources.cache.period= # Cache period for the resources served by the resource handler. If a duration suffix is not specified, seconds will be used.
+# 是否在资源链中启用缓存。
+spring.resources.chain.cache=true # Whether to enable caching in the Resource chain.
+# 是否启用对已压缩资源(gzip、brotli)的解析。
+spring.resources.chain.compressed=false # Whether to enable resolution of already compressed resources (gzip, brotli).
+# 是否启用Spring资源处理链。默认情况下，禁用，除非至少启用了一个策略。
+spring.resources.chain.enabled= # Whether to enable the Spring Resource Handling chain. By default, disabled unless at least one strategy has been enabled.
+# 是否启用HTML5应用程序缓存清单重写。
+spring.resources.chain.html-application-cache=false # Whether to enable HTML5 application cache manifest rewriting.
+# 是否启用内容版本策略。
+spring.resources.chain.strategy.content.enabled=false # Whether to enable the content Version Strategy.
+# 应用于内容版本策略的以逗号分隔的模式列表。
+spring.resources.chain.strategy.content.paths=/** # Comma-separated list of patterns to apply to the content Version Strategy.
+# 是否启用固定版本策略。
+spring.resources.chain.strategy.fixed.enabled=false # Whether to enable the fixed Version Strategy.
+# 应用于固定版本策略的以逗号分隔的模式列表。
+spring.resources.chain.strategy.fixed.paths=/** # Comma-separated list of patterns to apply to the fixed Version Strategy.
+# 用于固定版本策略的版本字符串。
+spring.resources.chain.strategy.fixed.version= # Version string to use for the fixed Version Strategy.
+# 静态资源的位置。
+spring.resources.static-locations=classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/ # Locations of static resources.
+
+# SPRING SESSION（session配置信息）
+# SPRING SESSION (SessionProperties)
+# 会话存储类型。
+spring.session.store-type= # Session store type.
+# 会话超时。如果没有指定持续时间后缀，将使用秒。
+spring.session.timeout= # Session timeout. If a duration suffix is not specified, seconds will be used.
+# 会话存储库筛选顺序。
+spring.session.servlet.filter-order=-2147483598 # Session repository filter order.
+# 会话存储库筛选分派器类型。
+spring.session.servlet.filter-dispatcher-types=async,error,request # Session repository filter dispatcher types.
+
+# SPRING SESSION HAZELCAST（Hazelcast会话配置）---> Hazelcast是一个内存分布式计算平台，用于管理数据并并行执行执行应用程序。是一个高度可扩展的数据分发和集群平台
+#                                                    1.提供java.util.{Queue, Set, List, Map}分布式实现。
+#                                                    2.提供java.util.concurrency.locks.Lock分布式实现。
+#                                                    3.提供java.util.concurrent.ExecutorService分布式实现。
+#                                                    4.提供用于一对多关系的分布式MultiMap。
+#                                                    5.提供用于发布/订阅的分布式Topic（主题）。
+#                                                    6.通过JCA与J2EE容器集成和事务支持。
+#                                                    7.提供用于安全集群的Socket层加密。
+#                                                    8.支持同步和异步持久化。
+#                                                    9.为Hibernate提供二级缓存Provider 。
+#                                                    10.通过JMX监控和管理集群。
+#                                                    11.支持动态HTTP Session集群。
+#                                                    12.利用备份实现动态分割。
+#                                                    13.支持动态故障恢复。
+# SPRING SESSION HAZELCAST (HazelcastSessionProperties)
+# 会话刷新模式。
+spring.session.hazelcast.flush-mode=on-save # Sessions flush mode.
+# 用于存储会话的映射的名称。
+spring.session.hazelcast.map-name=spring:session:sessions # Name of the map used to store sessions.
+
+# SPRING SESSION JDBC（jdbc会话配置）
+# SPRING SESSION JDBC (JdbcSessionProperties)
+# 过期会话清理作业的Cron表达式。
+spring.session.jdbc.cleanup-cron=0 * * * * * # Cron expression for expired session cleanup job.
+# 数据库模式初始化模式。
+spring.session.jdbc.initialize-schema=embedded # Database schema initialization mode.
+# 用于初始化数据库模式的SQL文件的路径。
+spring.session.jdbc.schema=classpath:org/springframework/session/jdbc/schema-@@platform@@.sql # Path to the SQL file to use to initialize the database schema.
+# 用于存储会话的数据库表的名称。
+spring.session.jdbc.table-name=SPRING_SESSION # Name of the database table used to store sessions.
+
+# SPRING SESSION MONGODB（Mongo会话配置）
+# SPRING SESSION MONGODB (MongoSessionProperties)
+# 用于存储会话的集合名称。
+spring.session.mongodb.collection-name=sessions # Collection name used to store sessions.
+
+# SPRING SESSION REDIS（Redis会话配置）
+# SPRING SESSION REDIS (RedisSessionProperties)
+# 过期会话清理作业的Cron表达式。
+spring.session.redis.cleanup-cron=0 * * * * * # Cron expression for expired session cleanup job.
+# 会话刷新模式。
+spring.session.redis.flush-mode=on-save # Sessions flush mode.
+# 用于存储会话的键的名称空间。
+spring.session.redis.namespace=spring:session # Namespace for keys used to store sessions.
+
+# THYMELEAF（Thymeleaf自动配置）
+# THYMELEAF (ThymeleafAutoConfiguration)
+# 是否启用模板缓存。
+spring.thymeleaf.cache=true # Whether to enable template caching.
+# 是否在呈现模板之前检查模板是否存在。
+spring.thymeleaf.check-template=true # Whether to check that the template exists before rendering it.
+# 是否检查模板位置是否存在。
+spring.thymeleaf.check-template-location=true # Whether to check that the templates location exists.
+# 是否为Web框架启用Thymeleaf视图解析。
+spring.thymeleaf.enabled=true # Whether to enable Thymeleaf view resolution for Web frameworks.
+# 在SpringEL表达式中启用SpringEL编译器。
+spring.thymeleaf.enable-spring-el-compiler=false # Enable the SpringEL compiler in SpringEL expressions.
+# 模板文件编码。
+spring.thymeleaf.encoding=UTF-8 # Template files encoding.
+# 应该从分辨率中排除的以逗号分隔的视图名称列表(允许的模式)。
+spring.thymeleaf.excluded-view-names= # Comma-separated list of view names (patterns allowed) that should be excluded from resolution.
+# 模板模式应用于模板。参见Thymeleaf的TemplateMode enum。
+spring.thymeleaf.mode=HTML # Template mode to be applied to templates. See also Thymeleaf's TemplateMode enum.
+# 前缀，用于在构建URL时查看名称。
+spring.thymeleaf.prefix=classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
+# 当设置最大块大小时，视图名称(允许模式)的逗号分隔列表应该是唯一以块模式执行的视图名称。
+spring.thymeleaf.reactive.chunked-mode-view-names= # Comma-separated list of view names (patterns allowed) that should be the only ones executed in CHUNKED mode when a max chunk size is set.
+# 即使设置了最大块大小，也应该在全模式下执行的以逗号分隔的视图名称列表(模式允许)。
+spring.thymeleaf.reactive.full-mode-view-names= # Comma-separated list of view names (patterns allowed) that should be executed in FULL mode even if a max chunk size is set.
+# 用于写入响应的数据缓冲区的最大大小。
+spring.thymeleaf.reactive.max-chunk-size=0B # Maximum size of data buffers used for writing to the response.
+# 视图技术支持的媒体类型。
+spring.thymeleaf.reactive.media-types= # Media types supported by the view technology.
+# 作为复选框标记的隐藏表单输入是否应该在复选框元素本身之前呈现。
+spring.thymeleaf.render-hidden-markers-before-checkboxes=false # Whether hidden form inputs acting as markers for checkboxes should be rendered before the checkbox element itself.
+# 写入HTTP响应的内容类型值。
+spring.thymeleaf.servlet.content-type=text/html # Content-Type value written to HTTP responses.
+# 在模板处理完成之前，Thymeleaf是应该尽快开始写部分输出，还是应该先写缓冲区。
+spring.thymeleaf.servlet.produce-partial-output-while-processing=true # Whether Thymeleaf should start writing partial output as soon as possible or buffer until template processing is finished.
+# 在构建URL时附加到视图名称的后缀。
+spring.thymeleaf.suffix=.html # Suffix that gets appended to view names when building a URL.
+# 模板解析器在链中的顺序。
+spring.thymeleaf.template-resolver-order= # Order of the template resolver in the chain.
+# 可以解析的视图名称(允许模式)的逗号分隔列表。
+spring.thymeleaf.view-names= # Comma-separated list of view names (patterns allowed) that can be resolved.
+
+# SPRING WEBFLUX（WebFlux配置文件）----> 反应时开发
+# SPRING WEBFLUX (WebFluxProperties)
+# 使用日期格式。例如,“dd / MM / yyyy”。
+spring.webflux.date-format= # Date format to use. For instance, `dd/MM/yyyy`.
+# 是否启用Spring的HiddenHttpMethodFilter。
+spring.webflux.hiddenmethod.filter.enabled=true # Whether to enable Spring's HiddenHttpMethodFilter.
+# 用于静态资源的路径模式。
+spring.webflux.static-path-pattern=/** # Path pattern used for static resources.
+
+# SPRING WEB SERVICES（WebServices配置文件）
+# SPRING WEB SERVICES (WebServicesProperties)
+# 用于静态资源的路径模式。
+spring.webservices.path=/services # Path that serves as the base URI for the services.
+# Servlet初始化参数传递给Spring Web服务。
+spring.webservices.servlet.init= # Servlet init parameters to pass to Spring Web Services.
+# 加载Spring Web服务servlet的启动优先级。
+spring.webservices.servlet.load-on-startup=-1 # Load on startup priority of the Spring Web Services servlet.
+# 以逗号分隔的wsdl位置列表以及作为bean公开的附带xsd。
+spring.webservices.wsdl-locations= # Comma-separated list of locations of WSDLs and accompanying XSDs to be exposed as beans.
+
+
+# ----------------------------------------
+# SECURITY PROPERTIES（安全属性）
+# SECURITY PROPERTIES
+# ----------------------------------------
+# SECURITY（安全配置）----- > 是一个能够为基于Spring的企业应用系统提供声明式的安全访问控制解决方案的安全框架。它提供了一组可以在Spring应用上下文中配置的Bean，
+#                               充分利用了Spring IoC，DI（控制反转Inversion of Control ,DI:Dependency Injection 依赖注入）和AOP（面向切面编程）功能，为应用系统提供声明式的安全访问控制功能，
+#                               减少了为企业系统安全控制编写大量重复代码的工作。
+# SECURITY (SecurityProperties)
+# 安全过滤器链顺序。
+spring.security.filter.order=-100 # Security filter chain order.
+# 安全过滤器链分派器类型。
+spring.security.filter.dispatcher-types=async,error,request # Security filter chain dispatcher types.
+# 默认的用户名。
+spring.security.user.name=user # Default user name.
+# 默认用户名的密码。
+spring.security.user.password= # Password for the default user name.
+# 为默认用户名授予角色。
+spring.security.user.roles= # Granted roles for the default user name.
+
+# SECURITY OAUTH2 CLIENT（开放授权客户端配置） ----> 允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据。每一个令牌授权一个特定的网站
+#                         （例如，视频编辑网站)在特定的时段（例如，接下来的2小时内）内访问特定的资源（例如仅仅是某一相册中的视频）。这样，OAuth允许用户授权第三方
+#                          网站访问他们存储在另外的服务提供者上的信息，而不需要分享他们的访问许可或他们数据的所有内容。
+# SECURITY OAUTH2 CLIENT (OAuth2ClientProperties)
+# OAuth提供者细节。
+spring.security.oauth2.client.provider.*= # OAuth provider details.
+# OAuth客户注册。
+spring.security.oauth2.client.registration.*= # OAuth client registrations.
+
+# SECURITY OAUTH2 RESOURCE SERVER（开放授权服务端配置）
+# SECURITY OAUTH2 RESOURCE SERVER (OAuth2ResourceServerProperties)
+# 用于验证JWT令牌的JSON Web Key URI。
+spring.security.oauth2.resourceserver.jwt.jwk-set-uri= # JSON Web Key URI to use to verify the JWT token.
+# OpenID连接提供程序断言作为其发布方标识符的URI。
+spring.security.oauth2.resourceserver.jwt.issuer-uri= # URI that an OpenID Connect Provider asserts as its Issuer Identifier.
+#对执行迁移时基准版本的描述
+spring.flyway.baseline-description=<< Flyway Baseline >> # Description to tag an existing schema with when applying a baseline.
+#当迁移时发现目标schema非空，而且带有没有元数据的表时，是否自动执行基准迁移，默认false.
+spring.flyway.baseline-on-migrate=false # Whether to automatically call baseline when migrating a non-empty schema.
+#开始执行基准迁移时对现有的schema的版本打标签，默认值为1.
+spring.flyway.baseline-version=1 # Version to tag an existing schema with when executing baseline.
+#检查迁移脚本的位置是否存在，默认false.
+spring.flyway.check-location=true # Whether to check that migration scripts location exists.
+
+spring.flyway.clean-disabled=false # Whether to disable cleaning of the database.
+#当发现校验错误时是否自动调用clean，默认false.
+spring.flyway.clean-on-validation-error=false # Whether to automatically call clean when a validation error occurs.
+#试图连接到数据库时重试的最大次数
+spring.flyway.connect-retries=0 # Maximum number of retries when attempting to connect to the database.
+#是否开启flywary，默认true.
+spring.flyway.enabled=true # Whether to enable flyway.
+#设置迁移时的编码，默认UTF-8.
+spring.flyway.encoding=UTF-8 # Encoding of SQL migrations.
+#在应用所有未决迁移时，是否将它们组合在同一个事务中
+spring.flyway.group=false # Whether to group all pending migrations together in the same transaction when applying them.
+#当读取元数据表时是否忽略错误的迁移，默认false
+spring.flyway.ignore-future-migrations=true # Whether to ignore future migrations when reading the schema history table.
+#在读取模式历史表时是否忽略忽略的迁移
+spring.flyway.ignore-ignored-migrations=false # Whether to ignore ignored migrations when reading the schema history table.
+#在读取模式历史表时是否忽略丢失的迁移
+spring.flyway.ignore-missing-migrations=false # Whether to ignore missing migrations when reading the schema history table.
+#在读取模式历史表时是否忽略挂起的迁移
+spring.flyway.ignore-pending-migrations=false # Whether to ignore pending migrations when reading the schema history table.
+#当初始化好连接时要执行的SQL
+spring.flyway.init-sqls= # SQL statements to execute to initialize a connection immediately after obtaining it.
+#模式历史表中记录的用户名已经应用迁移
+spring.flyway.installed-by= # Username recorded in the schema history table as having applied the migration.
+#迁移脚本的位置，默认db/migration
+spring.flyway.locations=classpath:db/migration # Locations of migrations scripts. Can contain the special "{vendor}" placeholder to use vendor-specific locations.
+#是否允许在同一迁移中混合事务性和非事务性语句
+spring.flyway.mixed=false # Whether to allow mixing transactional and non-transactional statements within the same migration.
+#是否允许无序的迁移，默认false.
+spring.flyway.out-of-order=false # Whether to allow migrations to be run out of order.
+#目标数据库的密码
+spring.flyway.password= # Login password of the database to migrate.
+#设置每个placeholder的前缀，默认${.
+spring.flyway.placeholder-prefix=${ # Prefix of placeholders in migration scripts.
+#是否要被替换，默认true.
+spring.flyway.placeholder-replacement=true # Perform placeholder replacement in migration scripts.
+#设置每个placeholder的后缀，默认}.
+spring.flyway.placeholder-suffix=} # Suffix of placeholders in migration scripts.
+#占位符及其替代应用于sql迁移脚本
+spring.flyway.placeholders= # Placeholders and their replacements to apply to sql migration scripts.
+#可重复SQL迁移的文件名前缀
+spring.flyway.repeatable-sql-migration-prefix=R # File name prefix for repeatable SQL migrations.
+#设定需要flywary迁移的schema，大小写敏感，默认为连接默认的schema
+spring.flyway.schemas= # Scheme names managed by Flyway (case-sensitive).
+#是否跳过默认回调。如果为true，则只使用自定义回调
+spring.flyway.skip-default-callbacks=false # Whether to skip default callbacks. If true, only custom callbacks are used.
+#是否跳过默认解析器。如果为true，则只使用自定义解析器
+spring.flyway.skip-default-resolvers=false # Whether to skip default resolvers. If true, only custom resolvers are used.
+#迁移文件的前缀，默认为V
+spring.flyway.sql-migration-prefix=V # File name prefix for SQL migrations.
+#迁移脚本的文件名分隔符，默认__
+spring.flyway.sql-migration-separator=__ # File name separator for SQL migrations.
+#迁移脚本的后缀，默认为.sql
+spring.flyway.sql-migration-suffixes=.sql # File name suffix for SQL migrations.
+#Flyway将使用的模式历史表的名称
+spring.flyway.table=flyway_schema_history # Name of the schema schema history table that will be used by Flyway.
+#迁移时使用的目标版本，默认为latest version
+spring.flyway.target= # Target version up to which migrations should be considered.
+#迁移时使用的JDBC URL，如果没有指定的话，将使用配置的主数据源
+spring.flyway.url= # JDBC url of the database to migrate. If not set, the primary configured data source is used.
+#迁移数据库的用户名
+spring.flyway.user= # Login user of the database to migrate.
+#迁移时是否校验，默认为true
+spring.flyway.validate-on-migrate=true # Whether to automatically call validate when performing a migration.
+
+# LIQUIBASE (LiquibaseProperties)
+#更改日志配置路径 （默认值： classpath:/db/changelog/db.changelog-master.
+#yaml 。 ）
+spring.liquibase.change-log=classpath:/db/changelog/db.changelog-master.yaml # Change log configuration path.
+#检查变更日志位置是否存在。 （默认值： true 。 ）
+spring.liquibase.check-change-log-location=true # Whether to check that the change log location exists.
+#要使用的运行时上下文列表，用逗号分隔。
+spring.liquibase.contexts= # Comma-separated list of runtime contexts to use.
+#用于跟踪并发Liquibase使用情况的表的名称
+spring.liquibase.database-change-log-lock-table=DATABASECHANGELOGLOCK # Name of table to use for tracking concurrent Liquibase usage.
+#用于跟踪更改历史的表的名称
+spring.liquibase.database-change-log-table=DATABASECHANGELOG # Name of table to use for tracking change history.
+#默认的数据库Schema。
+spring.liquibase.default-schema= # Default database schema.
+#先删除数据库Schema。 （默认值： false 。 ）
+spring.liquibase.drop-first=false # Whether to first drop the database schema.
+#开启Liquibase支持。 （默认值： true 。 ）
+spring.liquibase.enabled=true # Whether to enable Liquibase support.
+##使用逗号分隔的运行时标签列表。
+spring.liquibase.labels= # Comma-separated list of runtime labels to use.
+#用于Liquibase对象的模式
+spring.liquibase.liquibase-schema= # Schema to use for Liquibase objects.
+#用于Liquibase对象的表空间
+spring.liquibase.liquibase-tablespace= # Tablespace to use for Liquibase objects.
+#更改日志参数
+spring.liquibase.parameters.*= # Change log parameters.
+#待迁移数据库的登录密码。
+spring.liquibase.password= # Login password of the database to migrate.
+#执行更新时写入回滚SQL的文件
+spring.liquibase.rollback-file= # File to which rollback SQL is written when an update is performed.
+#在执行更新之前是否应该测试回滚
+spring.liquibase.test-rollback-on-update=false # Whether rollback should be tested before update is performed.
+#待迁移数据库的JDBC URL。如果没有设置，就使用配置的主数据源
+spring.liquibase.url= # JDBC URL of the database to migrate. If not set, the primary configured data source is used.
+#待迁移数据库的登录用户。
+spring.liquibase.user= # Login user of the database to migrate.
+
+# COUCHBASE (CouchbaseProperties)
+#从Couchbase节点(主机或IP地址)引导
+spring.couchbase.bootstrap-hosts= # Couchbase nodes (host or IP address) to bootstrap from.
+#连接名称
+spring.couchbase.bucket.name=default # Name of the bucket to connect to.
+#密码
+spring.couchbase.bucket.password=  # Password of the bucket.
+#针对键/值服务的每个节点的sockets字数量。
+spring.couchbase.env.endpoints.key-value=1 # Number of sockets per node against the key/value service.
+#每个节点的最小sockets字数。
+spring.couchbase.env.endpoints.queryservice.min-endpoints=1 # Minimum number of sockets per node.
+#每个节点的最大sockets字数。
+spring.couchbase.env.endpoints.queryservice.max-endpoints=1 # Maximum number of sockets per node.
+#每个节点的最小sockets字数
+spring.couchbase.env.endpoints.viewservice.min-endpoints=1 # Minimum number of sockets per node.
+#每个节点的最大sockets字数
+spring.couchbase.env.endpoints.viewservice.max-endpoints=1 # Maximum number of sockets per node.
+#是否启用SSL支持。除非另有说明，否则如果提供“密钥存储库”，则自动启用
+spring.couchbase.env.ssl.enabled= # Whether to enable SSL support. Enabled automatically if a "keyStore" is provided unless specified otherwise.
+#到持有证书的JVM密钥存储区的路径。
+spring.couchbase.env.ssl.key-store= # Path to the JVM key store that holds the certificates.
+#用于访问密钥存储区的密码。
+spring.couchbase.env.ssl.key-store-password= # Password used to access the key store.
+#连接超时时间
+spring.couchbase.env.timeouts.connect=5000ms # Bucket connections timeouts.
+#在特定键超时上执行的阻塞操作
+spring.couchbase.env.timeouts.key-value=2500ms # Blocking operations performed on a specific key timeout.
+#N1QL查询操作超时
+spring.couchbase.env.timeouts.query=7500ms # N1QL query operations timeout.
+#sockets字连接超时
+spring.couchbase.env.timeouts.socket-connect=1000ms # Socket connect connections timeout.
+#常规和地理空间视图操作超时
+spring.couchbase.env.timeouts.view=7500ms # Regular and geospatial view operations timeout.
+
+# DAO (PersistenceExceptionTranslationAutoConfiguration)
+spring.dao.exceptiontranslation.enabled=true # Whether to enable the PersistenceExceptionTranslationPostProcessor.
+
+# CASSANDRA (CassandraProperties)
+#Cassandra群集的名称
+spring.data.cassandra.cluster-name= # Name of the Cassandra cluster.
+#由Cassandra二进制协议支持的压缩
+spring.data.cassandra.compression=none # Compression supported by the Cassandra binary protocol.
+#sockets字选项：连接超时
+spring.data.cassandra.connect-timeout= # Socket option: connection time out.
+#查询一致性级别
+spring.data.cassandra.consistency-level= # Queries consistency level.
+#集群节点地址的逗号分隔列表
+spring.data.cassandra.contact-points=localhost # Cluster node addresses.
+#查询默认的抓取大小
+spring.data.cassandra.fetch-size= # Queries default fetch size.
+#要使用的密钥空间名称
+spring.data.cassandra.jmx-enabled=false # Whether to enable JMX reporting.
+#要使用的键空间名称
+spring.data.cassandra.keyspace-name= # Keyspace name to use.
+#Cassandra服务器端口。
+spring.data.cassandra.port= # Port of the Cassandra server.
+#登录服务器的密码。
+spring.data.cassandra.password= # Login password of the server.
+#在空闲连接上发送消息以确保消息仍然有效的心跳间隔。如果没有指定持续时间后缀，将使用秒
+spring.data.cassandra.pool.heartbeat-interval=30s # Heartbeat interval after which a message is sent on an idle connection to make sure it's still alive. If a duration suffix is not specified, seconds will be used.
+#删除空闲连接之前的空闲超时。如果没有指定持续时间后缀，将使用秒
+spring.data.cassandra.pool.idle-timeout=120s # Idle timeout before an idle connection is removed. If a duration suffix is not specified, seconds will be used.
+#如果没有连接可用，则排队的请求的最大数量
+spring.data.cassandra.pool.max-queue-size=256 # Maximum number of requests that get queued if no connection is available.
+#试图从主机池获取连接时，池超时
+spring.data.cassandra.pool.pool-timeout=5000ms # Pool timeout when trying to acquire a connection from a host's pool.
+#读取超时
+spring.data.cassandra.read-timeout= # Socket option: read time out.
+#要启用的Cassandra存储库类型
+spring.data.cassandra.repositories.type=auto # Type of Cassandra repositories to enable.
+#查询串行一致性级别
+spring.data.cassandra.serial-consistency-level= # Queries serial consistency level.
+#启动时要采取的模式操作
+spring.data.cassandra.schema-action=none # Schema action to take at startup.
+#启用SSL支持。
+spring.data.cassandra.ssl=false # Enable SSL support.
+#登录用户的服务器。
+spring.data.cassandra.username= # Login user of the server.
+
+# DATA COUCHBASE (CouchbaseDataProperties)
+spring.data.couchbase.auto-index=false # Automatically create views and indexes.
+#默认情况下对生成的查询应用一致性
+spring.data.couchbase.consistency=read-your-own-writes # Consistency to apply by default on generated queries.
+#要启用的Couchbase存储库的类型
+spring.data.couchbase.repositories.type=auto # Type of Couchbase repositories to enable.
+
+# ELASTICSEARCH (ElasticsearchProperties)
+#弹性搜索集群名称。
+spring.data.elasticsearch.cluster-name=elasticsearch # Elasticsearch cluster name.
+#集群节点地址的逗号分隔列表。 如果未指定，则启动客户端节点。
+spring.data.elasticsearch.cluster-nodes= # Comma-separated list of cluster node addresses.
+#用于配置客户端的其他属性
+spring.data.elasticsearch.properties.*= # Additional properties used to configure the client.
+#启用Elasticsearch存储库。
+spring.data.elasticsearch.repositories.enabled=true # Whether to enable Elasticsearch repositories.
+
+
+# DATA JDBC
+spring.data.jdbc.repositories.enabled=true # Whether to enable JDBC repositories.
+
+# DATA LDAP
+spring.data.ldap.repositories.enabled=true # Whether to enable LDAP repositories.
+
+# MONGODB (MongoProperties)
+#验证数据库名称。
+spring.data.mongodb.authentication-database= # Authentication database name.
+#数据库名称。
+spring.data.mongodb.database= # Database name.
+#要使用的FieldNamingStrategy的完全限定名称
+spring.data.mongodb.field-naming-strategy= # Fully qualified name of the FieldNamingStrategy to use.
+#GridFS数据库名称。
+spring.data.mongodb.grid-fs-database= # GridFS database name.
+#Mongo服务器主机。
+spring.data.mongodb.host= # Mongo server host. Cannot be set with URI.
+#登录mongo服务器的密码。
+spring.data.mongodb.password= # Login password of the mongo server. Cannot be set with URI.
+#Mongo服务器端口。
+spring.data.mongodb.port= # Mongo server port. Cannot be set with URI.
+spring.data.mongodb.repositories.type=auto # Type of Mongo repositories to enable.
+#Mongo数据库URI。 设置时，主机和端口将被忽略。
+spring.data.mongodb.uri=mongodb://localhost/test # Mongo database URI. Cannot be set with host, port and credentials.
+#登录mongo服务器的用户
+spring.data.mongodb.username= # Login user of the mongo server. Cannot be set with URI.
+
+# DATA REDIS
+spring.data.redis.repositories.enabled=true # Whether to enable Redis repositories.
+
+# NEO4J (Neo4jProperties)
+spring.data.neo4j.auto-index=none # Auto index mode.
+#如果嵌入式驱动程序可用，是否启用嵌入式模式
+spring.data.neo4j.embedded.enabled=true # Whether to enable embedded mode if the embedded driver is available.
+#在视图拦截器中注册打开会话。将Neo4j会话绑定到线程，以完成请求的整个处理
+spring.data.neo4j.open-in-view=true # Register OpenSessionInViewInterceptor. Binds a Neo4j Session to the thread for the entire processing of the request.
+#密码
+spring.data.neo4j.password= # Login password of the server.
+#是否启用Neo4j存储库。
+spring.data.neo4j.repositories.enabled=true # Whether to enable Neo4j repositories.
+#驱动程序使用的URI。默认自动检测。
+spring.data.neo4j.uri= # URI used by the driver. Auto-detected by default.
+#登录用户名
+spring.data.neo4j.username= # Login user of the server.
+
+# DATA REST (RepositoryRestProperties)
+#由Spring Data REST用于公开存储库资源的基本路径。
+spring.data.rest.base-path= # Base path to be used by Spring Data REST to expose repository resources.
+#当没有指定内容类型时，作为默认值使用的内容类型。
+spring.data.rest.default-media-type= # Content type to use as a default when none is specified.
+#页面的默认大小
+spring.data.rest.default-page-size= # Default size of pages.
+#用于确定公开哪些存储库的策略
+spring.data.rest.detection-strategy=default # Strategy to use to determine which repositories get exposed.
+#通过Spring Data REST默认资源包启用枚举值转换
+spring.data.rest.enable-enum-translation= # Whether to enable enum value translation through the Spring Data REST default resource bundle.
+#指示一次返回多少结果的URL查询字符串参数的名称
+spring.data.rest.limit-param-name= # Name of the URL query string parameter that indicates how many results to return at once.
+#最大页面大小
+spring.data.rest.max-page-size= # Maximum size of pages.
+#指示要返回的页面的URL查询字符串参数的名称
+spring.data.rest.page-param-name= # Name of the URL query string parameter that indicates what page to return.
+#创建一个实体后返回响应体
+spring.data.rest.return-body-on-create= # Whether to return a response body after creating an entity.
+#更新实体后返回响应体
+spring.data.rest.return-body-on-update= # Whether to return a response body after updating an entity.
+#指示排序结果的方向的URL查询字符串参数的名称
+spring.data.rest.sort-param-name= # Name of the URL query string parameter that indicates what direction to sort results.
+
+# SOLR (SolrProperties)
+#Solr主机。 如果设置了“zk-host”，则被忽略。
+spring.data.solr.host=http://127.0.0.1:8983/solr # Solr host. Ignored if "zk-host" is set.
+#是否启用Solr存储库
+spring.data.solr.repositories.enabled=true # Whether to enable Solr repositories.
+#表单主机中的ZooKeeper主机地址:PORT
+spring.data.solr.zk-host= # ZooKeeper host address in the form HOST:PORT.
+
+# DATA WEB (SpringDataWebProperties)
+#默认分页大小
+spring.data.web.pageable.default-page-size=20 # Default page size.
+#允许的最大页面大小
+spring.data.web.pageable.max-page-size=2000 # Maximum page size to be accepted.
+#是否公开和假设基于1的页码索引
+spring.data.web.pageable.one-indexed-parameters=false # Whether to expose and assume 1-based page number indexes.
+#页面索引参数名称
+spring.data.web.pageable.page-parameter=page # Page index parameter name.
+#一般前缀要加在页号和页大小参数之前
+spring.data.web.pageable.prefix= # General prefix to be prepended to the page number and page size parameters.
+#限定符与实际页码和大小属性之间使用的分隔符。
+spring.data.web.pageable.qualifier-delimiter=_ # Delimiter to be used between the qualifier and the actual page number and size properties.
+#页面大小参数名称
+spring.data.web.pageable.size-parameter=size # Page size parameter name.
+#参数名称排序
+spring.data.web.sort.sort-parameter=sort # Sort parameter name.
+
+# DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+#初始化数据库时发生错误时不要停止。
+spring.datasource.continue-on-error=false # Whether to stop if an error occurs while initializing the database.
+#Data（DML）脚本资源引用。
+spring.datasource.data= # Data (DML) script resource references.
+#数据源的名称。
+spring.datasource.data-username= # Username of the database to execute DML scripts (if different).
+#登录数据库的密码。
+spring.datasource.data-password= # Password of the database to execute DML scripts (if different).
+#公共DBCP2特定设置
+spring.datasource.dbcp2.*= # Commons DBCP2 specific settings
+#JDBC驱动程序的完全限定名称。默认情况下，根据URL自动检测。
+spring.datasource.driver-class-name= # Fully qualified name of the JDBC driver. Auto-detected based on the URL by default.
+#是否生成随机数据源名称
+spring.datasource.generate-unique-name=false # Whether to generate a random datasource name.
+#Hikari特定设置
+spring.datasource.hikari.*= # Hikari specific settings
+#使用可用的DDL和DML脚本初始化数据源
+spring.datasource.initialization-mode=embedded # Initialize the datasource with available DDL and DML scripts.
+#是否启用JMX支持(如果由底层池提供)。
+spring.datasource.jmx-enabled=false # Whether to enable JMX support (if provided by the underlying pool).
+#数据源的JNDI位置。类、url、用户名和密码在设置时被忽略。
+spring.datasource.jndi-name= # JNDI location of the datasource. Class, url, username & password are ignored when set.
+#数据源的名称。
+spring.datasource.name= # Name of the datasource. Default to "testdb" when using an embedded database.
+#登录数据库的密码。
+spring.datasource.password= # Login password of the database.
+#在资源模式（schema - $ {platform} .sql）中使用的平台。
+spring.datasource.platform=all # Platform to use in the DDL or DML scripts (such as schema-${platform}.sql or data-${platform}.sql).
+#Schema（DDL）脚本资源引用
+spring.datasource.schema= # Schema (DDL) script resource references.
+#用户名
+spring.datasource.schema-username= # Username of the database to execute DDL scripts (if different).
+#密码
+spring.datasource.schema-password= # Password of the database to execute DDL scripts (if different).
+#语句分隔符在SQL初始化脚本中。
+spring.datasource.separator=; # Statement separator in SQL initialization scripts.
+#SQL脚本编码
+spring.datasource.sql-script-encoding= # SQL scripts encoding.
+#tomcat数据源设置
+spring.datasource.tomcat.*= # Tomcat datasource specific settings
+#要使用的连接池实现的完全限定名称。默认情况下，它是从类路径自动检测的。
+spring.datasource.type= # Fully qualified name of the connection pool implementation to use. By default, it is auto-detected from the classpath.
+#数据库的JDBC url。
+spring.datasource.url= # JDBC URL of the database.
+#数据库用户名
+spring.datasource.username= # Login username of the database.
+#XA数据源全限定名
+spring.datasource.xa.data-source-class-name= # XA datasource fully qualified name.
+#属性传递到XA数据源。
+spring.datasource.xa.properties= # Properties to pass to the XA data source.
+
+# JEST (Elasticsearch HTTP client) (JestProperties)
+#连接超时时间
+spring.elasticsearch.jest.connection-timeout=3s # Connection timeout.
+#是否允许多线程的连接请求
+spring.elasticsearch.jest.multi-threaded=true # Whether to enable connection requests from multiple execution threads.
+#密码
+spring.elasticsearch.jest.password= # Login password.
+#host
+spring.elasticsearch.jest.proxy.host= # Proxy host the HTTP client should use.
+#端口
+spring.elasticsearch.jest.proxy.port= # Proxy port the HTTP client should use.
+#超时时间
+spring.elasticsearch.jest.read-timeout=3s # Read timeout.
+#ES URL
+spring.elasticsearch.jest.uris=http://localhost:9200 # Comma-separated list of the Elasticsearch instances to use.
+#登录名
+spring.elasticsearch.jest.username= # Login username.
+
+# Elasticsearch REST clients (RestClientProperties)
+#密码
+spring.elasticsearch.rest.password= # Credentials password.
+#url
+spring.elasticsearch.rest.uris=http://localhost:9200 # Comma-separated list of the Elasticsearch instances to use.
+#用户名
+spring.elasticsearch.rest.username= # Credentials username.
+
+# H2 Web Console (H2ConsoleProperties)
+#启用控制台。
+spring.h2.console.enabled=false # Whether to enable the console.
+#控制台可用的路径。
+spring.h2.console.path=/h2-console # Path at which the console is available.
+#是否启用跟踪输出
+spring.h2.console.settings.trace=false # Whether to enable trace output.
+#是否启用远程访问
+spring.h2.console.settings.web-allow-others=false # Whether to enable remote access.
+
+# InfluxDB (InfluxDbProperties)
+#密码
+spring.influx.password= # Login password.
+#URL
+spring.influx.url= # URL of the InfluxDB instance to which to connect.
+#用户名
+spring.influx.user= # Login user.
+
+# JOOQ (JooqProperties)
+# 与配置的数据源通信时使用的SQLDialect JOOQ。 例如`POSTGRES`
+spring.jooq.sql-dialect= # SQL dialect to use. Auto-detected by default.
+
+# JDBC (JdbcProperties)
+#当需要更多行时，应该从数据库中获取的行数
+spring.jdbc.template.fetch-size=-1 # Number of rows that should be fetched from the database when more rows are needed.
+#最大行数
+spring.jdbc.template.max-rows=-1 # Maximum number of rows.
+#查询超时。默认是使用JDBC驱动程序的默认配置。如果没有指定持续时间后缀，将使用秒。
+spring.jdbc.template.query-timeout= # Query timeout. Default is to use the JDBC driver's default configuration. If a duration suffix is not specified, seconds will be used.
+
+# JPA (JpaBaseConfiguration, HibernateJpaAutoConfiguration)
+#JPA存储库的引导模式
+spring.data.jpa.repositories.bootstrap-mode=default # Bootstrap mode for JPA repositories.
+#启用JPA存储库。
+spring.data.jpa.repositories.enabled=true # Whether to enable JPA repositories.
+#目标数据库进行操作，默认情况下自动检测。可以使用“databasePlatform”属性设置
+spring.jpa.database= # Target database to operate on, auto-detected by default. Can be alternatively set using the "databasePlatform" property.
+#要运行的目标数据库的名称，默认情况下自动检测。可以使用“数据库”枚举来设置。
+spring.jpa.database-platform= # Name of the target database to operate on, auto-detected by default. Can be alternatively set using the "Database" enum.
+#启动时初始化模式。
+spring.jpa.generate-ddl=false # Whether to initialize the schema on startup.
+#DDL模式。这实际上是“hibernate.hbm2ddl.auto”属性的快捷方式。使用嵌入式数据库时默认为“创建删除”，否则为“否”。
+spring.jpa.hibernate.ddl-auto= # DDL mode. This is actually a shortcut for the "hibernate.hbm2ddl.auto" property. Defaults to "create-drop" when using an embedded database and no schema manager was detected. Otherwise, defaults to "none".
+#隐式命名策略的完全限定名
+spring.jpa.hibernate.naming.implicit-strategy= # Fully qualified name of the implicit naming strategy.
+#物理命名策略的完全限定名。
+spring.jpa.hibernate.naming.physical-strategy= # Fully qualified name of the physical naming strategy.
+#是否对自动、表和序列使用Hibernate的新标识生成器。
+spring.jpa.hibernate.use-new-id-generator-mappings= # Whether to use Hibernate's newer IdentifierGenerator for AUTO, TABLE and SEQUENCE.
+#映射资源(相当于persistence.xml中的“映射文件”条目)。
+spring.jpa.mapping-resources= # Mapping resources (equivalent to "mapping-file" entries in persistence.xml).
+#在视图拦截器中注册Open Entity Manager。将JPA实体管理器绑定到线程，以完成请求的整个处理。
+spring.jpa.open-in-view=true # Register OpenEntityManagerInViewInterceptor. Binds a JPA EntityManager to the thread for the entire processing of the request.
+#在JPA提供程序上设置的其他本机属性
+spring.jpa.properties.*= # Additional native properties to set on the JPA provider.
+#启用SQL语句的日志记录
+spring.jpa.show-sql=false # Whether to enable logging of SQL statements.
+
+# JTA (JtaAutoConfiguration)
+spring.jta.enabled=true # Whether to enable JTA support.
+#Transaction logs目录。
+spring.jta.log-dir= # Transaction logs directory.
+spring.jta.transaction-manager-id= # Transaction manager unique identifier.
+
+# ATOMIKOS (AtomikosProperties)
+#从池中借用连接的超时（以秒为单位）。
+spring.jta.atomikos.connectionfactory.borrow-connection-timeout=30 # Timeout, in seconds, for borrowing connections from the pool.
+#创建会话时是否忽略事务标志。
+spring.jta.atomikos.connectionfactory.ignore-session-transacted-flag=true # Whether to ignore the transacted flag when creating session.
+#是否需要本地事务。
+spring.jta.atomikos.connectionfactory.local-transaction-mode=false # Whether local transactions are desired.
+#池的维护线程运行之间的时间（以秒为单位）
+spring.jta.atomikos.connectionfactory.maintenance-interval=60 # The time, in seconds, between runs of the pool's maintenance thread.
+#从池中清除连接之后的时间（以秒为单位）
+spring.jta.atomikos.connectionfactory.max-idle-time=60 # The time, in seconds, after which connections are cleaned up from the pool.
+#在被破坏之前可以将连接合并的时间（以秒为单位）。 0表示无限制。
+spring.jta.atomikos.connectionfactory.max-lifetime=0 # The time, in seconds, that a connection can be pooled for before being destroyed. 0 denotes no limit.
+#池的最大大小
+spring.jta.atomikos.connectionfactory.max-pool-size=1 # The maximum size of the pool.
+#池的最小大小。
+spring.jta.atomikos.connectionfactory.min-pool-size=1 # The minimum size of the pool.
+#借用连接的收获超时（以秒为单位）。 0表示无限制。
+spring.jta.atomikos.connectionfactory.reap-timeout=0 # The reap timeout, in seconds, for borrowed connections. 0 denotes no limit.
+#用于在恢复期间标识资源的唯一名称。
+spring.jta.atomikos.connectionfactory.unique-resource-name=jmsConnectionFactory # The unique name used to identify the resource during recovery.
+#特定于供应商的XAConnectionFactory实现。
+spring.jta.atomikos.connectionfactory.xa-connection-factory-class-name= # Vendor-specific implementation of XAConnectionFactory.
+#特定于供应商的XA属性
+spring.jta.atomikos.connectionfactory.xa-properties= # Vendor-specific XA properties.
+#从池中借出连接的超时（秒）。
+spring.jta.atomikos.datasource.borrow-connection-timeout=30 # Timeout, in seconds, for borrowing connections from the pool.
+#是否使用并发连接验证
+spring.jta.atomikos.datasource.concurrent-connection-validation= # Whether to use concurrent connection validation.
+#池提供的连接的默认隔离级别。
+spring.jta.atomikos.datasource.default-isolation-level= # Default isolation level of connections provided by the pool.
+#用于建立数据库连接的超时（以秒为单位）。
+spring.jta.atomikos.datasource.login-timeout= # Timeout, in seconds, for establishing a database connection.
+#池的维护线程运行之间的时间（以秒为单位）。
+spring.jta.atomikos.datasource.maintenance-interval=60 # The time, in seconds, between runs of the pool's maintenance thread.
+#从池中清除连接之后的时间（以秒为单位）。
+spring.jta.atomikos.datasource.max-idle-time=60 # The time, in seconds, after which connections are cleaned up from the pool.
+#在被破坏之前可以将连接合并的时间（以秒为单位）。 0表示无限制。
+spring.jta.atomikos.datasource.max-lifetime=0 # The time, in seconds, that a connection can be pooled for before being destroyed. 0 denotes no limit.
+#池的最大大小
+spring.jta.atomikos.datasource.max-pool-size=1 # The maximum size of the pool.
+#池的最小大小。
+spring.jta.atomikos.datasource.min-pool-size=1 # The minimum size of the pool.
+#借用连接的收获超时（以秒为单位）。 0表示无限制。
+spring.jta.atomikos.datasource.reap-timeout=0 # The reap timeout, in seconds, for borrowed connections. 0 denotes no limit.
+#用于在返回连接之前验证连接的SQL查询或语句
+spring.jta.atomikos.datasource.test-query= # SQL query or statement used to validate a connection before returning it.
+#用于在恢复期间识别资源的唯一名称。
+spring.jta.atomikos.datasource.unique-resource-name=dataSource # The unique name used to identify the resource during recovery.
+#特定于供应商的XAConnectionFactory实现
+spring.jta.atomikos.datasource.xa-data-source-class-name= # Vendor-specific implementation of XAConnectionFactory.
+#特定于供应商的XA属性。
+spring.jta.atomikos.datasource.xa-properties= # Vendor-specific XA properties.
+#指定是否允许子事务
+spring.jta.atomikos.properties.allow-sub-transactions=true # Specify whether sub-transactions are allowed.
+#检查点间隔=500 #检查点间隔，表示两个检查点之间的日志写入次数。
+spring.jta.atomikos.properties.checkpoint-interval=500 # Interval between checkpoints, expressed as the number of log writes between two checkpoints.
+#JTA事务的默认超时
+spring.jta.atomikos.properties.default-jta-timeout=10000ms # Default timeout for JTA transactions.
+#正常关机(非强制)应等待事务完成多长时间。
+spring.jta.atomikos.properties.default-max-wait-time-on-shutdown=9223372036854775807 # How long should normal shutdown (no-force) wait for transactions to complete.
+#是否启用磁盘日志记录。
+spring.jta.atomikos.properties.enable-logging=true # Whether to enable disk logging.
+#VM关闭是否应该触发事务核心的强制关闭
+spring.jta.atomikos.properties.force-shutdown-on-vm-exit=false # Whether a VM shutdown should trigger forced shutdown of the transaction core.
+#目录，日志文件应该存储在该目录中
+spring.jta.atomikos.properties.log-base-dir= # Directory in which the log files should be stored.
+#Transactions日志文件的基本名称。
+spring.jta.atomikos.properties.log-base-name=tmlog # Transactions log file base name.
+#活动事务的最大数量50
+spring.jta.atomikos.properties.max-actives=50 # Maximum number of active transactions.
+#事务允许的最大超时
+spring.jta.atomikos.properties.max-timeout=300000ms # Maximum timeout that can be allowed for transactions.
+#延迟=两次恢复扫描之间的10000ms #延迟
+spring.jta.atomikos.properties.recovery.delay=10000ms # Delay between two recovery scans.
+#延迟，在此之后恢复可以清除暂挂日志条目。
+spring.jta.atomikos.properties.recovery.forget-orphaned-log-entries-delay=86400000ms # Delay after which recovery can cleanup pending ('orphaned') log entries.
+#在抛出异常之前，尝试提交事务的重试次数最多=5 #。
+spring.jta.atomikos.properties.recovery.max-retries=5 # Number of retry attempts to commit the transaction before throwing an exception.
+#重试间隔=重试之间的延迟10000ms
+spring.jta.atomikos.properties.recovery.retry-interval=10000ms # Delay between retry attempts.
+#如果true连接子事务
+spring.jta.atomikos.properties.serial-jta-transactions=true # Whether sub-transactions should be joined when possible.
+#开启事务 应该开启
+spring.jta.atomikos.properties.service= # Transaction manager implementation that should be started.
+#是否对参与资源的两阶段提交使用不同(和并发)的线程。
+spring.jta.atomikos.properties.threaded-two-phase-commit=false # Whether to use different (and concurrent) threads for two-phase commit on the participating resources.
+#事务管理器惟一名称
+spring.jta.atomikos.properties.transaction-manager-unique-name= # The transaction manager's unique name.
+#
+
+#
+# BITRONIX
+#生成池时要创建的连接数。
+spring.jta.bitronix.connectionfactory.acquire-increment=1 # Number of connections to create when growing the pool.
+#在获取无效连接后再次尝试获取连接之前等待的时间（以秒为单位）。
+spring.jta.bitronix.connectionfactory.acquisition-interval=1 # Time, in seconds, to wait before trying to acquire a connection again after an invalid connection was acquired.
+#从池中获取连接的超时（以秒为单位）
+spring.jta.bitronix.connectionfactory.acquisition-timeout=30 # Timeout, in seconds, for acquiring connections from the pool.
+#事务管理器是否允许混合XA和非XA事务。
+spring.jta.bitronix.connectionfactory.allow-local-transactions=true # Whether the transaction manager should allow mixing XA and non-XA transactions.
+#当XAResource被登记时，是否应该设置事务超时。
+spring.jta.bitronix.connectionfactory.apply-transaction-timeout=false # Whether the transaction timeout should be set on the XAResource when it is enlisted.
+#资源是否应该被自动登记和删除。
+spring.jta.bitronix.connectionfactory.automatic-enlisting-enabled=true # Whether resources should be enlisted and delisted automatically.
+#是否生产和消费者应该被缓存
+spring.jta.bitronix.connectionfactory.cache-producers-consumers=true # Whether producers and consumers should be cached.
+#XA资源的底层实现类名
+spring.jta.bitronix.connectionfactory.class-name= # Underlying implementation class name of the XA resource.
+#提供者是否可以在同一连接上运行多个事务并支持事务交叉。
+spring.jta.bitronix.connectionfactory.defer-connection-release=true # Whether the provider can run many transactions on the same connection and supports transaction interleaving.
+#是否禁用该资源，这意味着暂时禁止从其池中获取连接。
+spring.jta.bitronix.connectionfactory.disabled= # Whether this resource is disabled, meaning it's temporarily forbidden to acquire a connection from its pool.
+#应该在基础实现上设置的属性。
+spring.jta.bitronix.connectionfactory.driver-properties= # Properties that should be set on the underlying implementation.
+#是否应忽略恢复失败。
+spring.jta.bitronix.connectionfactory.failed= # Mark this resource producer as failed.
+#是否应该忽略恢复失败。
+spring.jta.bitronix.connectionfactory.ignore-recovery-failures=false # Whether recovery failures should be ignored.
+#从池中清除连接之后的时间（以秒为单位）
+spring.jta.bitronix.connectionfactory.max-idle-time=60 # The time, in seconds, after which connections are cleaned up from the pool.
+#池的最大大小。 0表示无限制。
+spring.jta.bitronix.connectionfactory.max-pool-size=10 # The maximum size of the pool. 0 denotes no limit.
+#池的最小大小。
+spring.jta.bitronix.connectionfactory.min-pool-size=0 # The minimum size of the pool.
+#用于连接到JMS提供程序的密码
+spring.jta.bitronix.connectionfactory.password= # The password to use to connect to the JMS provider.
+#ACCESSIBLE状态中的连接是否可以在事务的上下文中共享。
+spring.jta.bitronix.connectionfactory.share-transaction-connections=false #  Whether connections in the ACCESSIBLE state can be shared within the context of a transaction.
+#从池中获取连接是否应该进行测试
+spring.jta.bitronix.connectionfactory.test-connections=true # Whether connections should be tested when acquired from the pool.
+#在两阶段提交期间该资源应该采取的位置（始终为Integer.MIN_VALUE，始终为Integer.MAX_VALUE）。
+spring.jta.bitronix.connectionfactory.two-pc-ordering-position=1 # The position that this resource should take during two-phase commit (always first is Integer.MIN_VALUE, always last is Integer.MAX_VALUE).
+#用于在恢复期间标识资源的唯一名称
+spring.jta.bitronix.connectionfactory.unique-name=jmsConnectionFactory # The unique name used to identify the resource during recovery.
+#启动XAResource时是否应使用TMJOIN。
+spring.jta.bitronix.connectionfactory.use-tm-join=true # Whether TMJOIN should be used when starting XAResources.
+#用于连接到JMS提供者的用户
+spring.jta.bitronix.connectionfactory.user= # The user to use to connect to the JMS provider.
+#生成池时要创建的连接数。
+spring.jta.bitronix.datasource.acquire-increment=1 # Number of connections to create when growing the pool.
+#在获取无效连接后再尝试获取连接之前等待的时间（以秒为单位）。
+spring.jta.bitronix.datasource.acquisition-interval=1 # Time, in seconds, to wait before trying to acquire a connection again after an invalid connection was acquired.
+#从池中获取连接的超时（以秒为单位）
+spring.jta.bitronix.datasource.acquisition-timeout=30 # Timeout, in seconds, for acquiring connections from the pool.
+#事务管理器是否允许混合XA和非XA事务
+spring.jta.bitronix.datasource.allow-local-transactions=true # Whether the transaction manager should allow mixing XA and non-XA transactions.
+#当XAResource被登记时，是否应该设置事务超时。
+spring.jta.bitronix.datasource.apply-transaction-timeout=false # Whether the transaction timeout should be set on the XAResource when it is enlisted.
+#资源是否应该被登记和自动删除。
+spring.jta.bitronix.datasource.automatic-enlisting-enabled=true # Whether resources should be enlisted and delisted automatically.
+#XA资源的底层实现类名。
+spring.jta.bitronix.datasource.class-name= # Underlying implementation class name of the XA resource.
+#连接的默认游标保持性
+spring.jta.bitronix.datasource.cursor-holdability= # The default cursor holdability for connections.
+#数据库是否可以在同一连接上运行许多事务，并支持事务交织。
+spring.jta.bitronix.datasource.defer-connection-release=true # Whether the database can run many transactions on the same connection and supports transaction interleaving.
+#是否禁用此资源，这意味着暂时禁止从其池中获取连接。
+spring.jta.bitronix.datasource.disabled= # Whether this resource is disabled, meaning it's temporarily forbidden to acquire a connection from its pool.
+#驱动程序属性= #应该在底层实现上设置的属性
+spring.jta.bitronix.datasource.driver-properties= # Properties that should be set on the underlying implementation.
+#当从池中获取连接时，是否调用connection . isvalid()
+spring.jta.bitronix.datasource.enable-jdbc4-connection-test= # Whether Connection.isValid() is called when acquiring a connection from the pool.
+#将此资源生成器标记为失败
+spring.jta.bitronix.datasource.failed= # Mark this resource producer as failed.
+#是否应该忽略恢复失败。
+spring.jta.bitronix.datasource.ignore-recovery-failures=false # Whether recovery failures should be ignored.
+#连接的默认隔离级别
+spring.jta.bitronix.datasource.isolation-level= # The default isolation level for connections.
+#本地事务的默认自动提交模式
+spring.jta.bitronix.datasource.local-auto-commit= # The default auto-commit mode for local transactions.
+#秒为单位，用于建立数据库连接。
+spring.jta.bitronix.datasource.login-timeout= # Timeout, in seconds, for establishing a database connection.
+#从池中清除连接之后的时间（以秒为单位）。
+spring.jta.bitronix.datasource.max-idle-time=60 # The time, in seconds, after which connections are cleaned up from the pool.
+#池的最大大小。 0表示无限制
+spring.jta.bitronix.datasource.max-pool-size=10 # The maximum size of the pool. 0 denotes no limit.
+#池的最小大小
+spring.jta.bitronix.datasource.min-pool-size=0 # The minimum size of the pool.
+#准备好的语句高速缓存的目标大小。 0禁用缓存。
+spring.jta.bitronix.datasource.prepared-statement-cache-size=0 # The target size of the prepared statement cache. 0 disables the cache.
+#ACCESSIBLE状态下的连接是否可以在事务的上下文中共享。
+spring.jta.bitronix.datasource.share-transaction-connections=false #  Whether connections in the ACCESSIBLE state can be shared within the context of a transaction.
+#用于在返回连接之前验证连接的SQL查询或语句。
+spring.jta.bitronix.datasource.test-query= # SQL query or statement used to validate a connection before returning it.
+#在两阶段提交期间该资源应该采取的位置（始终为Integer.MIN_VALUE，始终为Integer.MAX_VALUE）。
+spring.jta.bitronix.datasource.two-pc-ordering-position=1 # The position that this resource should take during two-phase commit (always first is Integer.MIN_VALUE, and always last is Integer.MAX_VALUE).
+#用于在恢复期间标识资源的唯一名称
+spring.jta.bitronix.datasource.unique-name=dataSource # The unique name used to identify the resource during recovery.
+#启动XAResource时是否应使用TMJOIN。
+spring.jta.bitronix.datasource.use-tm-join=true # Whether TMJOIN should be used when starting XAResources.
+#是否允许多个LRC资源被征募到同一个事务中。
+spring.jta.bitronix.properties.allow-multiple-lrc=false # Whether to allow multiple LRC resources to be enlisted into the same transaction.
+#是否启用两阶段提交的异步执行。
+spring.jta.bitronix.properties.asynchronous2-pc=false # Whether to enable asynchronously execution of two phase commit.
+#Interval in seconds at which to run the recovery process in the background.
+spring.jta.bitronix.properties.background-recovery-interval-seconds=60 # Interval in seconds at which to run the recovery process in the background.
+#是否仅恢复当前节点。
+spring.jta.bitronix.properties.current-node-only-recovery=true # Whether to recover only the current node.
+#是否记录在没有单个已登记资源的情况下执行的事务的创建和提交调用堆栈。
+spring.jta.bitronix.properties.debug-zero-resource-transaction=false # Whether to log the creation and commit call stacks of transactions executed without a single enlisted resource.
+#默认事务超时，以秒为单位
+spring.jta.bitronix.properties.default-transaction-timeout=60 # Default transaction timeout, in seconds.
+#是否启用JMX支持
+spring.jta.bitronix.properties.disable-jmx=false # Whether to enable JMX support.
+#设置要使用的异常分析器实现的完全限定名。
+spring.jta.bitronix.properties.exception-analyzer= # Set the fully qualified name of the exception analyzer implementation to use.
+#是否启用日志筛选，以便只写入强制日志
+spring.jta.bitronix.properties.filter-log-status=false # Whether to enable filtering of logs so that only mandatory logs are written.
+#是否批处理磁盘力
+spring.jta.bitronix.properties.force-batching-enabled=true #  Whether disk forces are batched.
+#日志是否被强制存储到磁盘。
+spring.jta.bitronix.properties.forced-write-enabled=true # Whether logs are forced to disk.
+#TM在关闭时中止事务之前等待事务完成的最大秒数。
+spring.jta.bitronix.properties.graceful-shutdown-interval=60 # Maximum amount of seconds the TM waits for transactions to get done before aborting them at shutdown time.
+#事务同步注册中心的JNDI名称。
+spring.jta.bitronix.properties.jndi-transaction-synchronization-registry-name= # JNDI name of the TransactionSynchronizationRegistry.
+#用户事务的JNDI名称
+spring.jta.bitronix.properties.jndi-user-transaction-name= # JNDI name of the UserTransaction.
+#名称。可以是“disk”、“null”或类名吗
+spring.jta.bitronix.properties.journal=disk # Name of the journal. Can be 'disk', 'null', or a class name.
+#日志的第一个片段的名称
+spring.jta.bitronix.properties.log-part1-filename=btm1.tlog # Name of the first fragment of the journal.
+#日志的第二个片段的名称
+spring.jta.bitronix.properties.log-part2-filename=btm2.tlog # Name of the second fragment of the journal.
+#日志碎片的最大大小(兆字节)
+spring.jta.bitronix.properties.max-log-size-in-mb=2 # Maximum size in megabytes of the journal fragments.
+#ResourceLoader配置文件名
+spring.jta.bitronix.properties.resource-configuration-filename= # ResourceLoader configuration file name.
+#必须唯一标识此TM实例的ASCII ID。默认为机器的IP地址
+spring.jta.bitronix.properties.server-id= # ASCII ID that must uniquely identify this TM instance. Defaults to the machine's IP address.
+#跳过损坏的事务日志条目。
+spring.jta.bitronix.properties.skip-corrupted-logs=false # Skip corrupted transactions log entries.
+#是否记录在没有单个已登记资源的情况下执行的事务的警告。
+spring.jta.bitronix.properties.warn-about-zero-resource-transaction=true # Whether to log a warning for transactions executed without a single enlisted resource.
+#
+
+#
+# EMBEDDED MONGODB (EmbeddedMongoProperties)
+#启用功能的逗号分隔列表。
+spring.mongodb.embedded.features=sync_delay # Comma-separated list of features to enable.
+#用于数据存储的目录。
+spring.mongodb.embedded.storage.database-dir= # Directory used for data storage.
+#oplog的最大大小。
+spring.mongodb.embedded.storage.oplog-size= # Maximum size of the oplog.
+#复制集的名称
+spring.mongodb.embedded.storage.repl-set-name= # Name of the replica set.
+#Mongo使用版本。
+spring.mongodb.embedded.version=3.5.5 # Version of Mongo to use.
+#
+
+#
+# REDIS (RedisProperties)
+#跨集群执行命令时需要遵循的最大重定向数量。
+spring.redis.cluster.max-redirects= # Maximum number of redirects to follow when executing commands across the cluster.
+#要引导的“主机:端口”对的逗号分隔列表
+spring.redis.cluster.nodes= # Comma-separated list of "host:port" pairs to bootstrap from.
+#连接工厂使用的数据库索引。
+spring.redis.database=0 # Database index used by the connection factory.
+#连接URL。覆盖主机、端口和密码。用户将被忽略。例如:复述:/ /用户:password@example.com: 6379
+spring.redis.url= # Connection URL. Overrides host, port, and password. User is ignored. Example: redis://user:password@example.com:6379
+#Redis服务器主机。
+spring.redis.host=localhost # Redis server host.
+#给定时间池可以分配的最大连接数。 使用负值为无限制。
+spring.redis.jedis.pool.max-active=8 # Maximum number of connections that can be allocated by the pool at a given time. Use a negative value for no limit.
+#池中“空闲”连接的最大数量。 使用负值来表示无限数量的空闲连接。
+spring.redis.jedis.pool.max-idle=8 # Maximum number of "idle" connections in the pool. Use a negative value to indicate an unlimited number of idle connections.
+#连接分配在池耗尽之前在抛出异常之前应阻止的最大时间量（以毫秒为单位）。 使用负值无限期地阻止。
+spring.redis.jedis.pool.max-wait=-1ms # Maximum amount of time a connection allocation should block before throwing an exception when the pool is exhausted. Use a negative value to block indefinitely.
+#池中“空闲”连接的最小数量。 使用负值来表示无限数量的空闲连接。
+spring.redis.jedis.pool.min-idle=0 # Target for the minimum number of idle connections to maintain in the pool. This setting only has an effect if it is positive.
+#目标是池中要维护的空闲连接的最小数量。这个设置只有在它是正数时才有效果。
+spring.redis.lettuce.pool.max-active=8 # Maximum number of connections that can be allocated by the pool at a given time. Use a negative value for no limit.
+#池中“空闲”连接的最大数量。使用负值表示空闲连接的数量没有限制。
+spring.redis.lettuce.pool.max-idle=8 # Maximum number of "idle" connections in the pool. Use a negative value to indicate an unlimited number of idle connections.
+#在池耗尽时引发异常之前，连接分配应该阻塞的最大时间。使用负值无限期地阻塞
+spring.redis.lettuce.pool.max-wait=-1ms # Maximum amount of time a connection allocation should block before throwing an exception when the pool is exhausted. Use a negative value to block indefinitely.
+#目标是池中要维护的空闲连接的最小数量。这个设置只有在它是正数时才有效果。
+spring.redis.lettuce.pool.min-idle=0 # Target for the minimum number of idle connections to maintain in the pool. This setting only has an effect if it is positive.
+#关闭超时
+spring.redis.lettuce.shutdown-timeout=100ms # Shutdown timeout.
+# 登录redis服务器的密码。
+spring.redis.password= # Login password of the redis server.
+#redis服务器端口
+spring.redis.port=6379 # Redis server port.
+#redis服务器名称
+spring.redis.sentinel.master= # Name of the Redis server.
+#节点
+spring.redis.sentinel.nodes= # Comma-separated list of "host:port" pairs.
+#是否启用SSL支持
+spring.redis.ssl=false # Whether to enable SSL support.
+#连接超时（毫秒）。
+spring.redis.timeout= # Connection timeout.
+#
+
+#
+# TRANSACTION (TransactionProperties)
+#默认事务超时。如果没有指定持续时间后缀，将使用秒。
+spring.transaction.default-timeout= # Default transaction timeout. If a duration suffix is not specified, seconds will be used.
+#是否回滚commit失败
+spring.transaction.rollback-on-commit-failure= # Whether to roll back on commit failures.
+#
+
+#
+
+#
+
+#
+# ----------------------------------------
+#
+# INTEGRATION PROPERTIES
+#
+# ----------------------------------------
+#
+
+#
+# ACTIVEMQ (ActiveMQProperties)
+#ActiveMQ代理的URL。 默认自动生成。 例如`tcp：// localhost：61616`
+spring.activemq.broker-url= # URL of the ActiveMQ broker. Auto-generated by default.
+#
+spring.activemq.close-timeout=15s # Time to wait before considering a close complete.
+#指定默认代理URL是否应在内存中。 如果指定了一个显式代理，则被忽略。
+spring.activemq.in-memory=true # Whether the default broker URL should be in memory. Ignored if an explicit broker has been specified.
+#
+spring.activemq.non-blocking-redelivery=false # Whether to stop message delivery before re-delivering messages from a rolled back transaction. This implies that message order is not preserved when this is enabled.
+#登录密码的代理。
+spring.activemq.password= # Login password of the broker.
+#超时时间
+spring.activemq.send-timeout=0ms # Time to wait on message sends for a response. Set it to 0 to wait forever.
+#代理登录用户。
+spring.activemq.user= # Login user of the broker.
+#是否信任所有包。
+spring.activemq.packages.trust-all= # Whether to trust all packages.
+#逗号分隔的要信任的特定包列表(当不信任所有包时)。
+spring.activemq.packages.trusted= # Comma-separated list of specific packages to trust (when not trusting all packages).
+#当请求连接且池已满时是否阻塞。将其设置为false，以抛出“JMSException”。
+spring.activemq.pool.block-if-full=true # Whether to block when a connection is requested and the pool is full. Set it to false to throw a "JMSException" instead.
+#阻塞-if-full超时=-1ms #阻塞期，如果池仍然满则抛出异常。
+spring.activemq.pool.block-if-full-timeout=-1ms # Blocking period before throwing an exception if the pool is still full.
+#是否应该创建JmsPoolConnectionFactory，而不是常规的ConnectionFactory。
+spring.activemq.pool.enabled=false # Whether a JmsPoolConnectionFactory should be created, instead of a regular ConnectionFactory.
+#空闲超时=30s #连接空闲超时
+spring.activemq.pool.idle-timeout=30s # Connection idle timeout.
+#池连接的最大数量
+spring.activemq.pool.max-connections=1 # Maximum number of pooled connections.
+#每个连接的最大会话数=池中每个连接的最大池会话数500
+spring.activemq.pool.max-sessions-per-connection=500 # Maximum number of pooled sessions per connection in the pool.
+#在空闲连接退出线程运行之间的时间间隔检查=-1ms #休眠时间。如果为负值，则不会运行空闲连接回收线程
+spring.activemq.pool.time-between-expiration-check=-1ms # Time to sleep between runs of the idle connection eviction thread. When negative, no idle connection eviction thread runs.
+#是否只使用一个匿名的“MessageProducer”实例。每次需要创建一个“MessageProducer”时，将其设置为false。
+spring.activemq.pool.use-anonymous-producers=true # Whether to use only one anonymous "MessageProducer" instance. Set it to false to create one "MessageProducer" every time one is required.
+#
+
+#
+# ARTEMIS (ArtemisProperties)
+#群集密码。 默认情况下随机生成。
+spring.artemis.embedded.cluster-password= # Cluster password. Randomly generated on startup by default.
+#日志文件目录。 如果持久性被关闭，则不需要。
+spring.artemis.embedded.data-directory= # Journal file directory. Not necessary if persistence is turned off.
+#如果Artemis服务器API可用，启用嵌入式模式。
+spring.artemis.embedded.enabled=true # Whether to enable embedded mode if the Artemis server APIs are available.
+#启用持久存储
+spring.artemis.embedded.persistent=false # Whether to enable persistent store.
+#启动时要创建的队列的逗号分隔列表。
+spring.artemis.embedded.queues= # Comma-separated list of queues to create on startup.
+#服务器ID。 默认情况下，使用自动递增的计数器。
+spring.artemis.embedded.server-id= # Server ID. By default, an auto-incremented counter is used.
+#启动时要创建的主题的逗号分隔列表。
+spring.artemis.embedded.topics= # Comma-separated list of topics to create on startup.
+#Artemis代理主机。
+spring.artemis.host=localhost # Artemis broker host.
+#Artemis部署模式，默认情况下自动检测。 可以显式设置为“native”或“embedded”。
+spring.artemis.mode= # Artemis deployment mode, auto-detected by default.
+#集群密码。 默认情况下随机生成
+spring.artemis.password= # Login password of the broker.
+#当请求连接且池已满时是否阻塞。将其设置为false，以抛出“JMSException”。
+spring.artemis.pool.block-if-full=true # Whether to block when a connection is requested and the pool is full. Set it to false to throw a "JMSException" instead.
+#阻塞期，如果池仍然满则抛出异常。
+spring.artemis.pool.block-if-full-timeout=-1ms # Blocking period before throwing an exception if the pool is still full.
+#是否应该创建JmsPoolConnectionFactory，而不是常规的ConnectionFactory。
+spring.artemis.pool.enabled=false # Whether a JmsPoolConnectionFactory should be created, instead of a regular ConnectionFactory.
+#连接空闲超时。
+spring.artemis.pool.idle-timeout=30s # Connection idle timeout.
+#池连接的最大数量
+spring.artemis.pool.max-connections=1 # Maximum number of pooled connections.
+#每个连接的最大会话数=池中每个连接的最大池会话数500
+spring.artemis.pool.max-sessions-per-connection=500 # Maximum number of pooled sessions per connection in the pool.
+#在空闲连接退出线程运行之间的时间间隔检查=-1ms #休眠时间。如果为负值，则不会运行空闲连接回收线程
+spring.artemis.pool.time-between-expiration-check=-1ms # Time to sleep between runs of the idle connection eviction thread. When negative, no idle connection eviction thread runs.
+#是否只使用一个匿名的“MessageProducer”实例。每次需要创建一个“MessageProducer”时，将其设置为false。
+spring.artemis.pool.use-anonymous-producers=true # Whether to use only one anonymous "MessageProducer" instance. Set it to false to create one "MessageProducer" every time one is required.
+#Artemis 中间件端口
+spring.artemis.port=61616 # Artemis broker port.
+#代理的登录用户
+spring.artemis.user= # Login user of the broker.
+#
+
+#
+# SPRING BATCH (BatchProperties)
+#如果需要，在启动时创建所需的批处理表。
+spring.batch.initialize-schema=embedded # Database schema initialization mode.
+#在启动时执行上下文中的所有Spring批处理作业。
+spring.batch.job.enabled=true # Execute all Spring Batch jobs in the context on startup.
+#在启动时执行的作业名称的逗号分隔列表（例如`job1，job2`）。 默认情况下，执行在上下文中找到的所有作业。
+spring.batch.job.names= # Comma-separated list of job names to execute on startup (for instance, `job1,job2`). By default, all Jobs found in the context are executed.
+#用于初始化数据库模式的SQL文件的路径。
+spring.batch.schema=classpath:org/springframework/batch/core/schema-@@platform@@.sql # Path to the SQL file to use to initialize the database schema.
+#所有批次元数据表的表前缀。
+spring.batch.table-prefix= # Table prefix for all the batch meta-data tables.
+#
+
+#
+# SPRING INTEGRATION (IntegrationProperties)
+#数据库模式初始化模式。
+spring.integration.jdbc.initialize-schema=embedded # Database schema initialization mode.
+#要用于初始化数据库模式的SQL文件的路径
+spring.integration.jdbc.schema=classpath:org/springframework/integration/jdbc/schema-@@platform@@.sql # Path to the SQL file to use to initialize the database schema.
+#
+
+#
+# JMS (JmsProperties)
+#是否缓存消息使用者。
+spring.jms.cache.consumers=false # Whether to cache message consumers.
+#是否缓存会话
+spring.jms.cache.enabled=true # Whether to cache sessions.
+#是否缓存消息生成器
+spring.jms.cache.producers=true # Whether to cache message producers.
+#会话缓存大小(每个JMS会话类型)
+spring.jms.cache.session-cache-size=1 # Size of the session cache (per JMS Session type).
+#连接工厂JNDI名称。 设置时，优先于其他连接工厂自动配置。
+spring.jms.jndi-name= # Connection factory JNDI name. When set, takes precedence to others connection factory auto-configurations.
+#容器的确认模式。 默认情况下，监听器被自动确认处理。
+spring.jms.listener.acknowledge-mode= # Acknowledge mode of the container. By default, the listener is transacted with automatic acknowledgment.
+#启动时自动启动容器。
+spring.jms.listener.auto-startup=true # Start the container automatically on startup.
+#最小并发消费者数。
+spring.jms.listener.concurrency= # Minimum number of concurrent consumers.
+#最大并发消费者数。
+spring.jms.listener.max-concurrency= # Maximum number of concurrent consumers.
+#是否默认的目标类型是主题。
+spring.jms.pub-sub-domain=false # Whether the default destination type is topic.
+#默认目的地，用于发送和接收没有目的地参数的操作
+spring.jms.template.default-destination= # Default destination to use on send and receive operations that do not have a destination parameter.
+#发送呼叫的交付延迟。
+spring.jms.template.delivery-delay= # Delivery delay to use for send calls.
+#Delivery mode。设置时启用QoS(服务质量)
+spring.jms.template.delivery-mode= # Delivery mode. Enables QoS (Quality of Service) when set.
+#消息发送时的优先级= #优先级。设置时启用QoS(服务质量)。
+spring.jms.template.priority= # Priority of a message when sending. Enables QoS (Quality of Service) when set.
+#发送消息时是否启用显式QoS(服务质量)
+spring.jms.template.qos-enabled= # Whether to enable explicit QoS (Quality of Service) when sending a message.
+#用于接收调用的超时
+spring.jms.template.receive-timeout= # Timeout to use for receive calls.
+#消息的生存时间。设置时启用QoS(服务质量)。
+spring.jms.template.time-to-live= # Time-to-live of a message when sending. Enables QoS (Quality of Service) when set.
+
+# APACHE KAFKA (KafkaProperties)
+#请求时传递给服务器的ID。用于服务器端日志记录。
+spring.kafka.admin.client-id= # ID to pass to the server when making requests. Used for server-side logging.
+#如果代理在启动时不可用时，是否快速失败。
+spring.kafka.admin.fail-fast=false # Whether to fail fast if the broker is not available on startup.
+#用于配置客户机的其他特定于管理员的属性。
+spring.kafka.admin.properties.*= # Additional admin-specific properties used to configure the client.
+#密钥存储文件中的私钥密码。
+spring.kafka.admin.ssl.key-password= # Password of the private key in the key store file.
+#密钥存储文件的位置。
+spring.kafka.admin.ssl.key-store-location= # Location of the key store file.
+#存储密钥存储文件的密码。
+spring.kafka.admin.ssl.key-store-password= # Store password for the key store file.
+#密钥存储库的类型。
+spring.kafka.admin.ssl.key-store-type= # Type of the key store.
+#使用SSL协议。
+spring.kafka.admin.ssl.protocol= # SSL protocol to use.
+#信任存储文件的位置。
+spring.kafka.admin.ssl.trust-store-location= # Location of the trust store file.
+#信任存储文件的存储密码。
+spring.kafka.admin.ssl.trust-store-password= # Store password for the trust store file.
+#信任存储库的类型。
+spring.kafka.admin.ssl.trust-store-type= # Type of the trust store.
+#用逗号分隔的主机列表:用于建立到Kafka集群的初始连接的端口对。应用于所有组件，除非被重写。
+spring.kafka.bootstrap-servers= # Comma-delimited list of host:port pairs to use for establishing the initial connections to the Kafka cluster. Applies to all components unless overridden.
+#请求时传递给服务器的ID。用于服务器端日志记录。
+spring.kafka.client-id= # ID to pass to the server when making requests. Used for server-side logging.
+#如果'enable.auto.commit'被设置为true，那么客户偏移量自动提交到Kafka的频率。
+spring.kafka.consumer.auto-commit-interval= # Frequency with which the consumer offsets are auto-committed to Kafka if 'enable.auto.commit' is set to true.
+#如果Kafka中没有初始偏移量，或者当前偏移量在服务器上不再存在，
+spring.kafka.consumer.auto-offset-reset= # What to do when there is no initial offset in Kafka or if the current offset no longer exists on the server.
+#用逗号分隔的主机列表:用于建立到Kafka集群的初始连接的端口对。
+spring.kafka.consumer.bootstrap-servers= # Comma-delimited list of host:port pairs to use for establishing the initial connections to the Kafka cluster. Overrides the global property, for consumers.
+#请求时传递给服务器的ID。用于服务器端日志记录
+spring.kafka.consumer.client-id= # ID to pass to the server when making requests. Used for server-side logging.
+#使用者的偏移量是否在后台定期提交
+spring.kafka.consumer.enable-auto-commit= # Whether the consumer's offset is periodically committed in the background.
+#如果没有足够的数据立即满足“fetch-min-size”的要求，则服务器在响应fetch请求之前的最大阻塞时间。
+spring.kafka.consumer.fetch-max-wait= # Maximum amount of time the server blocks before answering the fetch request if there isn't sufficient data to immediately satisfy the requirement given by "fetch-min-size".
+#获取请求时服务器应该返回的最小数据量。
+spring.kafka.consumer.fetch-min-size= # Minimum amount of data the server should return for a fetch request.
+#标识此使用者所属的使用者组的唯一字符串。
+spring.kafka.consumer.group-id= # Unique string that identifies the consumer group to which this consumer belongs.
+#从心跳到消费者协调器的预期时间。
+spring.kafka.consumer.heartbeat-interval= # Expected time between heartbeats to the consumer coordinator.
+#键的反序列化器类。
+spring.kafka.consumer.key-deserializer= # Deserializer class for keys.
+#在对poll()的单个调用中返回的记录的最大数量。
+spring.kafka.consumer.max-poll-records= # Maximum number of records returned in a single call to poll().
+#用于配置客户机的其他特定于使用者的属性。
+spring.kafka.consumer.properties.*= # Additional consumer-specific properties used to configure the client.
+#密钥存储文件中的私钥密码。
+spring.kafka.consumer.ssl.key-password= # Password of the private key in the key store file.
+#密钥存储文件的位置。
+spring.kafka.consumer.ssl.key-store-location= # Location of the key store file.
+#存储密钥存储文件的密码。
+spring.kafka.consumer.ssl.key-store-password= # Store password for the key store file.
+#密钥存储库的类型。
+spring.kafka.consumer.ssl.key-store-type= # Type of the key store.
+#使用SSL协议。
+spring.kafka.consumer.ssl.protocol= # SSL protocol to use.
+#信任存储文件的位置。
+spring.kafka.consumer.ssl.trust-store-location= # Location of the trust store file.
+#信任存储文件的存储密码。
+spring.kafka.consumer.ssl.trust-store-password= # Store password for the trust store file.
+#信任存储库的类型。
+spring.kafka.consumer.ssl.trust-store-type= # Type of the trust store.
+#值的反序列化器类。
+spring.kafka.consumer.value-deserializer= # Deserializer class for values.
+#登录配置的控制标志。
+spring.kafka.jaas.control-flag=required # Control flag for login configuration.
+#是否启用JAAS配置。
+spring.kafka.jaas.enabled=false # Whether to enable JAAS configuration.
+#登录模块。
+spring.kafka.jaas.login-module=com.sun.security.auth.module.Krb5LoginModule # Login module.
+#额外的JAAS选项。
+spring.kafka.jaas.options= # Additional JAAS options.
+#当ackMode是“COUNT”或“COUNT_TIME”时，偏移量提交之间的记录数量。
+spring.kafka.listener.ack-count= # Number of records between offset commits when ackMode is "COUNT" or "COUNT_TIME".
+#侦听器AckMode。
+spring.kafka.listener.ack-mode= # Listener AckMode. See the spring-kafka documentation.
+#当ackMode是“Time”或“COUNT_TIME”时，偏移量提交之间的时间。
+spring.kafka.listener.ack-time= # Time between offset commits when ackMode is "TIME" or "COUNT_TIME".
+#侦听器的客户端前缀。id属性。
+spring.kafka.listener.client-id= # Prefix for the listener's consumer client.id property.
+#侦听器容器中要运行的线程数。
+spring.kafka.listener.concurrency= # Number of threads to run in the listener containers.
+#发布空闲消费者事件(未接收数据)之间的时间。
+spring.kafka.listener.idle-event-interval= # Time between publishing idle consumer events (no data received).
+#是否在初始化期间记录容器配置(信息级别)。
+spring.kafka.listener.log-container-config= # Whether to log the container configuration during initialization (INFO level).
+#检查无响应的消费者的间隔时间。如果没有指定持续时间后缀，则使用秒。
+spring.kafka.listener.monitor-interval= # Time between checks for non-responsive consumers. If a duration suffix is not specified, seconds will be used.
+#应用于“pollTimeout”的乘数，以确定消费者是否无响应。
+spring.kafka.listener.no-poll-threshold= # Multiplier applied to "pollTimeout" to determine if a consumer is non-responsive.
+#在轮询消费者时使用超时。
+spring.kafka.listener.poll-timeout= # Timeout to use when polling the consumer.
+#侦听器类型。
+spring.kafka.listener.type=single # Listener type.
+#生产者要求领导在考虑完成一个请求之前已经收到的致谢数量。
+spring.kafka.producer.acks= # Number of acknowledgments the producer requires the leader to have received before considering a request complete.
+#默认的批量大小。
+spring.kafka.producer.batch-size= # Default batch size.
+#用逗号分隔的主机列表:用于建立到Kafka集群的初始连接的端口对。对生产者来说，覆盖全局属性。
+spring.kafka.producer.bootstrap-servers= # Comma-delimited list of host:port pairs to use for establishing the initial connections to the Kafka cluster. Overrides the global property, for producers.
+#生产者可以使用总内存大小来缓冲等待发送到服务器的记录。
+spring.kafka.producer.buffer-memory= # Total memory size the producer can use to buffer records waiting to be sent to the server.
+#请求时传递给服务器的ID。用于服务器端日志记录。
+spring.kafka.producer.client-id= # ID to pass to the server when making requests. Used for server-side logging.
+#由生产者生成的所有数据的压缩类型。
+spring.kafka.producer.compression-type= # Compression type for all data generated by the producer.
+#键的序列化器类。
+spring.kafka.producer.key-serializer= # Serializer class for keys.
+#用于配置客户机的其他特定于生产者的属性。
+spring.kafka.producer.properties.*= # Additional producer-specific properties used to configure the client.
+#当大于零时，允许重新尝试失败的发送。
+spring.kafka.producer.retries= # When greater than zero, enables retrying of failed sends.
+#密钥存储文件中的私钥密码
+spring.kafka.producer.ssl.key-password= # Password of the private key in the key store file.
+#密钥存储文件的位置。
+spring.kafka.producer.ssl.key-store-location= # Location of the key store file.
+#存储密钥存储文件的密码。
+spring.kafka.producer.ssl.key-store-password= # Store password for the key store file.
+#密钥存储库的类型。
+spring.kafka.producer.ssl.key-store-type= # Type of the key store.
+#使用SSL协议。
+spring.kafka.producer.ssl.protocol= # SSL protocol to use.
+#信任存储文件的位置。
+spring.kafka.producer.ssl.trust-store-location= # Location of the trust store file.
+#信任存储文件的存储密码。
+spring.kafka.producer.ssl.trust-store-password= # Store password for the trust store file.
+#信任存储库的类型。
+spring.kafka.producer.ssl.trust-store-type= # Type of the trust store.
+#当非空时，启用对生产者的事务支持。
+spring.kafka.producer.transaction-id-prefix= # When non empty, enables transaction support for producer.
+#用于值的序列化器类。
+spring.kafka.producer.value-serializer= # Serializer class for values.
+#生产者和消费者常用的附加属性用于配置客户机。
+spring.kafka.properties.*= # Additional properties, common to producers and consumers, used to configure the client.
+#密钥存储文件中的私钥密码。
+spring.kafka.ssl.key-password= # Password of the private key in the key store file.
+#密钥存储文件的位置。
+spring.kafka.ssl.key-store-location= # Location of the key store file.
+#存储密钥存储文件的密码。
+spring.kafka.ssl.key-store-password= # Store password for the key store file.
+#密钥存储库的类型。
+spring.kafka.ssl.key-store-type= # Type of the key store.
+#使用SSL协议。
+spring.kafka.ssl.protocol= # SSL protocol to use.
+#信任存储文件的位置。
+spring.kafka.ssl.trust-store-location= # Location of the trust store file.
+#信任存储文件的存储密码。
+spring.kafka.ssl.trust-store-password= # Store password for the trust store file.
+#信任存储库的类型。
+spring.kafka.ssl.trust-store-type= # Type of the trust store.
+#id属性;默认spring.application.name。
+spring.kafka.streams.application-id= # Kafka streams application.id property; default spring.application.name.
+#是否自动启动streams工厂bean。
+spring.kafka.streams.auto-startup=true # Whether or not to auto-start the streams factory bean.
+#用逗号分隔的主机列表:用于建立到Kafka集群的初始连接的端口对。覆盖全局属性，用于流。
+spring.kafka.streams.bootstrap-servers= # Comma-delimited list of host:port pairs to use for establishing the initial connections to the Kafka cluster. Overrides the global property, for streams.
+#用于缓冲所有线程的最大内存大小。
+spring.kafka.streams.cache-max-size-buffering= # Maximum memory size to be used for buffering across all threads.
+#请求时传递给服务器的ID。用于服务器端日志记录。
+spring.kafka.streams.client-id= # ID to pass to the server when making requests. Used for server-side logging.
+#用于配置流的其他Kafka属性。
+spring.kafka.streams.properties.*= # Additional Kafka properties used to configure the streams.
+#用于更改日志主题和重新分区流处理应用程序创建的主题的复制因子。
+spring.kafka.streams.replication-factor= # The replication factor for change log topics and repartition topics created by the stream processing application.
+#密钥存储文件中私钥的密码。
+spring.kafka.streams.ssl.key-password= # Password of the private key in the key store file.
+#密钥存储文件的位置。
+spring.kafka.streams.ssl.key-store-location= # Location of the key store file.
+#存储密钥存储文件的密码。
+spring.kafka.streams.ssl.key-store-password= # Store password for the key store file.
+#密钥存储库的类型。
+spring.kafka.streams.ssl.key-store-type= # Type of the key store.
+#使用SSL协议。
+spring.kafka.streams.ssl.protocol= # SSL protocol to use.
+#信任存储文件的位置。
+spring.kafka.streams.ssl.trust-store-location= # Location of the trust store file.
+#存储信任存储文件的密码。
+spring.kafka.streams.ssl.trust-store-password= # Store password for the trust store file.
+#信任存储区的类型。
+spring.kafka.streams.ssl.trust-store-type= # Type of the trust store.
+#状态存储的目录位置。
+spring.kafka.streams.state-dir= # Directory location for the state store.
+#消息发送到的默认主题。
+spring.kafka.template.default-topic= # Default topic to which messages are sent.
+
+# RABBIT (RabbitProperties)
+#客户端应连接到的逗号分隔的地址列表。
+spring.rabbitmq.addresses= # Comma-separated list of addresses to which the client should connect.
+#如果已达到缓存大小，则等待获取通道的持续时间。
+spring.rabbitmq.cache.channel.checkout-timeout= # Duration to wait to obtain a channel if the cache size has been reached.
+#要保留在缓存中的通道数。
+spring.rabbitmq.cache.channel.size= # Number of channels to retain in the cache.
+#通道#连接工厂缓存模式。
+spring.rabbitmq.cache.connection.mode=channel # Connection factory cache mode.
+#要缓存的连接数。
+spring.rabbitmq.cache.connection.size= # Number of connections to cache.
+#连接超时。将它设置为0，以便永远等待。
+spring.rabbitmq.connection-timeout= # Connection timeout. Set it to zero to wait forever.
+#是否创建AmqpAdmin bean。
+spring.rabbitmq.dynamic=true # Whether to create an AmqpAdmin bean.
+#本地主机# RabbitMQ主机。
+spring.rabbitmq.host=localhost # RabbitMQ host.
+#确认集装箱模式。
+spring.rabbitmq.listener.direct.acknowledge-mode= # Acknowledge mode of container.
+#是否在启动时自动启动容器。
+spring.rabbitmq.listener.direct.auto-startup=true # Whether to start the container automatically on startup.
+#每个队列的使用者数量。
+spring.rabbitmq.listener.direct.consumers-per-queue= # Number of consumers per queue.
+#默认情况下，被拒绝的交付是否重新排队。
+spring.rabbitmq.listener.direct.default-requeue-rejected= # Whether rejected deliveries are re-queued by default.
+#空闲容器事件应该多久发布一次。
+spring.rabbitmq.listener.direct.idle-event-interval= # How often idle container events should be published.
+#如果容器声明的队列在代理上不可用，是否失败。
+spring.rabbitmq.listener.direct.missing-queues-fatal=false # Whether to fail if the queues declared by the container are not available on the broker.
+#每个使用者未确认消息的最大数量。
+spring.rabbitmq.listener.direct.prefetch= # Maximum number of unacknowledged messages that can be outstanding at each consumer.
+#是否启用发布重试。
+spring.rabbitmq.listener.direct.retry.enabled=false # Whether publishing retries are enabled.
+#第一次和第二次尝试传递消息之间的持续时间。
+spring.rabbitmq.listener.direct.retry.initial-interval=1000ms # Duration between the first and second attempt to deliver a message.
+#传递消息的最大尝试次数。
+spring.rabbitmq.listener.direct.retry.max-attempts=3 # Maximum number of attempts to deliver a message.
+#两次尝试之间的最大持续时间。
+spring.rabbitmq.listener.direct.retry.max-interval=10000ms # Maximum duration between attempts.
+#乘数应用于上一个重试间隔。
+spring.rabbitmq.listener.direct.retry.multiplier=1 # Multiplier to apply to the previous retry interval.
+#重试是无状态的还是有状态的。
+spring.rabbitmq.listener.direct.retry.stateless=true # Whether retries are stateless or stateful.
+#确认集装箱模式。
+spring.rabbitmq.listener.simple.acknowledge-mode= # Acknowledge mode of container.
+#是否在启动时自动启动容器。
+spring.rabbitmq.listener.simple.auto-startup=true # Whether to start the container automatically on startup.
+#侦听器调用程序线程的最小数目。
+spring.rabbitmq.listener.simple.concurrency= # Minimum number of listener invoker threads.
+#默认情况下，被拒绝的交付是否重新排队。
+spring.rabbitmq.listener.simple.default-requeue-rejected= # Whether rejected deliveries are re-queued by default.
+#空闲容器事件应该多久发布一次。
+spring.rabbitmq.listener.simple.idle-event-interval= # How often idle container events should be published.
+#侦听器调用程序线程的最大数量。
+spring.rabbitmq.listener.simple.max-concurrency= # Maximum number of listener invoker threads.
+#如果容器声明的队列在代理上不可用，则是否失败;如果在运行时删除了一个或多个队列，则是否停止容器。
+spring.rabbitmq.listener.simple.missing-queues-fatal=true # Whether to fail if the queues declared by the container are not available on the broker and/or whether to stop the container if one or more queues are deleted at runtime.
+#每个使用者未确认消息的最大数量。
+spring.rabbitmq.listener.simple.prefetch= # Maximum number of unacknowledged messages that can be outstanding at each consumer.
+#是否启用发布重试。
+spring.rabbitmq.listener.simple.retry.enabled=false # Whether publishing retries are enabled.
+#第一次和第二次尝试传递消息之间的持续时间。
+spring.rabbitmq.listener.simple.retry.initial-interval=1000ms # Duration between the first and second attempt to deliver a message.
+#传递消息的最大尝试次数。
+spring.rabbitmq.listener.simple.retry.max-attempts=3 # Maximum number of attempts to deliver a message.
+#两次尝试之间的最大持续时间。
+spring.rabbitmq.listener.simple.retry.max-interval=10000ms # Maximum duration between attempts.
+#乘数应用于上一个重试间隔。
+spring.rabbitmq.listener.simple.retry.multiplier=1 # Multiplier to apply to the previous retry interval.
+#重试是无状态的还是有状态的。
+spring.rabbitmq.listener.simple.retry.stateless=true # Whether retries are stateless or stateful.
+#当应答模式为自动时，ack之间要处理的消息数量。如果大于prefetch, prefetch将会增加到这个值。
+spring.rabbitmq.listener.simple.transaction-size= # Number of messages to be processed between acks when the acknowledge mode is AUTO. If larger than prefetch, prefetch will be increased to this value.
+#侦听器容器类型。
+spring.rabbitmq.listener.type=simple # Listener container type.
+#登录以根据代理进行身份验证。
+spring.rabbitmq.password=guest # Login to authenticate against the broker.
+#RabbitMQ端口。
+spring.rabbitmq.port=5672 # RabbitMQ port.
+#是否启用publisher确认。
+spring.rabbitmq.publisher-confirms=false # Whether to enable publisher confirms.
+#是否启用publisher返回。
+spring.rabbitmq.publisher-returns=false # Whether to enable publisher returns.
+#心跳请求超时;零为无。如果没有指定持续时间后缀，将使用秒。
+spring.rabbitmq.requested-heartbeat= # Requested heartbeat timeout; zero for none. If a duration suffix is not specified, seconds will be used.
+#使用SSL算法。默认情况下，由Rabbit客户端库配置。
+spring.rabbitmq.ssl.algorithm= # SSL algorithm to use. By default, configured by the Rabbit client library.
+#是否启用SSL支持。
+spring.rabbitmq.ssl.enabled=false # Whether to enable SSL support.
+#到持有SSL证书的密钥存储库的路径。
+spring.rabbitmq.ssl.key-store= # Path to the key store that holds the SSL certificate.
+#用于访问密钥存储区的密码。
+spring.rabbitmq.ssl.key-store-password= # Password used to access the key store.
+#密钥存储库类型
+spring.rabbitmq.ssl.key-store-type=PKCS12 # Key store type.
+#持有SSL证书的信任存储区。
+spring.rabbitmq.ssl.trust-store= # Trust store that holds SSL certificates.
+#用于访问信任存储区的密码。
+spring.rabbitmq.ssl.trust-store-password= # Password used to access the trust store.
+#信任存储库类型。
+spring.rabbitmq.ssl.trust-store-type=JKS # Trust store type.
+#是否启用服务器端证书验证。
+spring.rabbitmq.ssl.validate-server-certificate=true # Whether to enable server side certificate validation.
+#是否启用主机名验证。
+spring.rabbitmq.ssl.verify-hostname=true # Whether to enable hostname verification.
+#用于发送操作的默认交换器的名称。
+spring.rabbitmq.template.exchange= # Name of the default exchange to use for send operations.
+#是否启用强制消息。
+spring.rabbitmq.template.mandatory= # Whether to enable mandatory messages.
+#当没有消息被显式指定时接收消息的默认队列的名称。
+spring.rabbitmq.template.queue= # Name of the default queue to receive messages from when none is specified explicitly.
+#receive() 操作超时。
+spring.rabbitmq.template.receive-timeout= # Timeout for `receive()` operations.
+#sendAndReceive()操作超时。
+spring.rabbitmq.template.reply-timeout= # Timeout for `sendAndReceive()` operations.
+#是否启用发布重试。
+spring.rabbitmq.template.retry.enabled=false # Whether publishing retries are enabled.
+#第一次和第二次尝试传递消息之间的持续时间。
+spring.rabbitmq.template.retry.initial-interval=1000ms # Duration between the first and second attempt to deliver a message.
+#传递消息的最大尝试次数。
+spring.rabbitmq.template.retry.max-attempts=3 # Maximum number of attempts to deliver a message.
+#两次尝试之间的最大持续时间。
+spring.rabbitmq.template.retry.max-interval=10000ms # Maximum duration between attempts.
+#乘数应用于上一个重试间隔。
+spring.rabbitmq.template.retry.multiplier=1 # Multiplier to apply to the previous retry interval.
+#用于发送操作的默认路由键的值。
+spring.rabbitmq.template.routing-key= # Value of a default routing key to use for send operations.
+#登录用户以验证到代理。
+spring.rabbitmq.username=guest # Login user to authenticate to the broker.
+#连接到代理时使用的虚拟主机。
+spring.rabbitmq.virtual-host= # Virtual host to use when connecting to the broker.
+
+
+# ----------------------------------------
+# ACTUATOR PROPERTIES
+# ----------------------------------------
+
+# MANAGEMENT HTTP SERVER (ManagementServerProperties)  管理HTTP服务器
+#在每个响应中添加“x应用程序上下文”HTTP头。
+management.server.add-application-context-header=false # Add the "X-Application-Context" HTTP header in each response.
+#管理端点应该绑定到的网络地址。需要自定义的management.server.port。
+management.server.address= # Network address to which the management endpoints should bind. Requires a custom management.server.port.
+#管理端点HTTP端口(默认情况下使用与应用程序相同的端口)。配置不同的端口以使用特定于管理的SSL。
+management.server.port= # Management endpoint HTTP port (uses the same port as the application by default). Configure a different port to use management-specific SSL.
+#管理端点上下文路径(例如，' / Management ')。需要自定义的management.server.port。
+management.server.servlet.context-path= # Management endpoint context-path (for instance, `/management`). Requires a custom management.server.port.
+#支持SSL密码。
+management.server.ssl.ciphers= # Supported SSL ciphers.
+#客户机身份验证是需要的(“想要”)还是需要的(“需要”)。需要信任存储。
+management.server.ssl.client-auth= # Whether client authentication is wanted ("want") or needed ("need"). Requires a trust store.
+#是否启用SSL支持。
+management.server.ssl.enabled=true # Whether to enable SSL support.
+#启用了SSL协议。
+management.server.ssl.enabled-protocols= # Enabled SSL protocols.
+#在密钥存储区标识密钥的别名。
+management.server.ssl.key-alias= # Alias that identifies the key in the key store.
+#用于访问密钥存储区的密钥的密码。
+management.server.ssl.key-password= # Password used to access the key in the key store.
+#到持有SSL证书(通常是jks文件)的密钥存储库的路径
+management.server.ssl.key-store= # Path to the key store that holds the SSL certificate (typically a jks file).
+#用于访问密钥存储区的密码。
+management.server.ssl.key-store-password= # Password used to access the key store.
+#密钥存储库的提供程序。
+management.server.ssl.key-store-provider= # Provider for the key store.
+#密钥存储库的类型。
+management.server.ssl.key-store-type= # Type of the key store.
+#使用SSL协议。
+management.server.ssl.protocol=TLS # SSL protocol to use.
+#持有SSL证书的信任存储区。
+management.server.ssl.trust-store= # Trust store that holds SSL certificates.
+#用于访问信任存储区的密码。
+management.server.ssl.trust-store-password= # Password used to access the trust store.
+#信任存储区的提供程序。
+management.server.ssl.trust-store-provider= # Provider for the trust store.
+#信任存储区的类型。
+management.server.ssl.trust-store-type= # Type of the trust store.
+
+# CLOUDFOUNDRY
+#是否启用扩展的云铸造执行器端点。
+management.cloudfoundry.enabled=true # Whether to enable extended Cloud Foundry actuator endpoints.
+#是否跳过对云铸造执行器端点安全调用的SSL验证。
+management.cloudfoundry.skip-ssl-validation=false # Whether to skip SSL verification for Cloud Foundry actuator endpoint security calls.
+
+# ENDPOINTS GENERAL CONFIGURATION
+#默认情况下是否启用或禁用所有端点。
+management.endpoints.enabled-by-default= # Whether to enable or disable all endpoints by default.
+
+# ENDPOINTS JMX CONFIGURATION (JmxEndpointProperties)
+#端点JMX域名。如果设置为“spring.jmx.default-domain”，则回退到“spring.jmx.default-domain”。
+management.endpoints.jmx.domain=org.springframework.boot # Endpoints JMX domain name. Fallback to 'spring.jmx.default-domain' if set.
+#应该包含的所有端点id或“*”。
+management.endpoints.jmx.exposure.include=* # Endpoint IDs that should be included or '*' for all.
+#应该排除所有端点id或'*'。
+management.endpoints.jmx.exposure.exclude= # Endpoint IDs that should be excluded or '*' for all.
+#附加静态属性，以追加到表示端点的mbean的所有objectname。
+management.endpoints.jmx.static-names= # Additional static properties to append to all ObjectNames of MBeans representing Endpoints.
+
+# ENDPOINTS WEB CONFIGURATION (WebEndpointProperties)
+#应该包含的所有端点id或“*”。
+management.endpoints.web.exposure.include=health,info # Endpoint IDs that should be included or '*' for all.
+#应该排除所有端点id或'*'。
+management.endpoints.web.exposure.exclude= # Endpoint IDs that should be excluded or '*' for all.
+#Web端点的基本路径。相对于server.servlet。上下文路径或management.server.servlet。如果management.server上下文路径。端口配置
+management.endpoints.web.base-path=/actuator # Base path for Web endpoints. Relative to server.servlet.context-path or management.server.servlet.context-path if management.server.port is configured.
+#端点id和应该公开它们的路径之间的映射。
+management.endpoints.web.path-mapping= # Mapping between endpoint IDs and the path that should expose them.
+
+# ENDPOINTS CORS CONFIGURATION (CorsEndpointProperties)
+#是否支持凭据。如果未设置，则不支持凭据。
+management.endpoints.web.cors.allow-credentials= # Whether credentials are supported. When not set, credentials are not supported.
+#请求中允许使用逗号分隔的标题列表。'*'允许所有标题。
+management.endpoints.web.cors.allowed-headers= # Comma-separated list of headers to allow in a request. '*' allows all headers.
+#允许的逗号分隔的方法列表。'*'允许所有方法。未设置时，默认为GET。
+management.endpoints.web.cors.allowed-methods= # Comma-separated list of methods to allow. '*' allows all methods. When not set, defaults to GET.
+#允许的逗号分隔的源列表。允许所有的起源。未设置时，禁用CORS支持。
+management.endpoints.web.cors.allowed-origins= # Comma-separated list of origins to allow. '*' allows all origins. When not set, CORS support is disabled.
+#要包含在响应中的头的逗号分隔的列表。
+management.endpoints.web.cors.exposed-headers= # Comma-separated list of headers to include in a response.
+#客户端缓存飞行前请求的响应的时间。如果没有指定持续时间后缀，将使用秒。
+management.endpoints.web.cors.max-age=1800s # How long the response from a pre-flight request can be cached by clients. If a duration suffix is not specified, seconds will be used.
+
+# AUDIT EVENTS ENDPOINT (AuditEventsEndpoint)
+#缓存响应的最大时间。
+management.endpoint.auditevents.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用auditevents端点。
+management.endpoint.auditevents.enabled=true # Whether to enable the auditevents endpoint.
+
+# BEANS ENDPOINT (BeansEndpoint)
+#缓存响应的最大时间。
+management.endpoint.beans.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用bean端点。
+management.endpoint.beans.enabled=true # Whether to enable the beans endpoint.
+
+# CACHES ENDPOINT (CachesEndpoint)
+#缓存响应的最大时间。
+management.endpoint.caches.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用缓存端点。
+management.endpoint.caches.enabled=true # Whether to enable the caches endpoint.
+
+# CONDITIONS REPORT ENDPOINT (ConditionsReportEndpoint)
+#缓存响应的最大时间。
+management.endpoint.conditions.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用条件端点。
+management.endpoint.conditions.enabled=true # Whether to enable the conditions endpoint.
+
+# CONFIGURATION PROPERTIES REPORT ENDPOINT (ConfigurationPropertiesReportEndpoint, ConfigurationPropertiesReportEndpointProperties)
+#缓存响应的最大时间。
+management.endpoint.configprops.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用configprops端点。
+management.endpoint.configprops.enabled=true # Whether to enable the configprops endpoint.
+#应该审查的密钥。键可以是属性以或正则表达式结束的简单字符串。
+management.endpoint.configprops.keys-to-sanitize=password,secret,key,token,.*credentials.*,vcap_services,sun.java.command # Keys that should be sanitized. Keys can be simple strings that the property ends with or regular expressions.
+
+# ENVIRONMENT ENDPOINT (EnvironmentEndpoint, EnvironmentEndpointProperties)
+#缓存响应的最大时间
+management.endpoint.env.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用环境端点。
+management.endpoint.env.enabled=true # Whether to enable the env endpoint.
+#应该审查的密钥。键可以是属性以或正则表达式结束的简单字符串。
+management.endpoint.env.keys-to-sanitize=password,secret,key,token,.*credentials.*,vcap_services,sun.java.command # Keys that should be sanitized. Keys can be simple strings that the property ends with or regular expressions.
+
+# FLYWAY ENDPOINT (FlywayEndpoint)
+#缓存响应的最大时间。
+management.endpoint.flyway.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用flyway端点。
+management.endpoint.flyway.enabled=true # Whether to enable the flyway endpoint.
+
+# HEALTH ENDPOINT (HealthEndpoint, HealthEndpointProperties)
+#缓存响应的最大时间。
+management.endpoint.health.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用健康端点。
+management.endpoint.health.enabled=true # Whether to enable the health endpoint.
+#用于确定是否授权用户显示详细信息的角色。如果为空，则授权所有经过身份验证的用户。
+management.endpoint.health.roles= # Roles used to determine whether or not a user is authorized to be shown details. When empty, all authenticated users are authorized.
+#何时显示完整的健康细节。
+management.endpoint.health.show-details=never # When to show full health details.
+
+# HEAP DUMP ENDPOINT (HeapDumpWebEndpoint)
+#缓存响应的最大时间。
+management.endpoint.heapdump.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用heapdump端点。
+management.endpoint.heapdump.enabled=true # Whether to enable the heapdump endpoint.
+
+# HTTP TRACE ENDPOINT (HttpTraceEndpoint)
+#缓存响应的最大时间。
+management.endpoint.httptrace.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用httptrace端点。
+management.endpoint.httptrace.enabled=true # Whether to enable the httptrace endpoint.
+
+# INFO ENDPOINT (InfoEndpoint)
+#要添加到info端点的任意属性。
+info= # Arbitrary properties to add to the info endpoint.
+#缓存响应的最大时间。
+management.endpoint.info.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用信息端点。
+management.endpoint.info.enabled=true # Whether to enable the info endpoint.
+
+# INTEGRATION GRAPH ENDPOINT (IntegrationGraphEndpoint)
+#缓存响应的最大时间。
+management.endpoint.integrationgraph.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用integrationgraph端点。
+management.endpoint.integrationgraph.enabled=true # Whether to enable the integrationgraph endpoint.
+
+# JOLOKIA ENDPOINT (JolokiaProperties)
+#品种设置。有关详细信息，请参阅Jolokia的文档。
+management.endpoint.jolokia.config.*= # Jolokia settings. Refer to the documentation of Jolokia for more details.
+#是否启用jolokia端点。
+management.endpoint.jolokia.enabled=true # Whether to enable the jolokia endpoint.
+
+# LIQUIBASE ENDPOINT (LiquibaseEndpoint)
+#缓存响应的最大时间。
+management.endpoint.liquibase.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用liquibase端点。
+management.endpoint.liquibase.enabled=true # Whether to enable the liquibase endpoint.
+
+# LOG FILE ENDPOINT (LogFileWebEndpoint, LogFileWebEndpointProperties)
+#缓存响应的最大时间。
+management.endpoint.logfile.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用日志文件端点。
+management.endpoint.logfile.enabled=true # Whether to enable the logfile endpoint.
+#要访问的外部日志文件。如果日志文件是由输出重定向而不是由日志系统本身编写，则可以使用。
+management.endpoint.logfile.external-file= # External Logfile to be accessed. Can be used if the logfile is written by output redirect and not by the logging system itself.
+
+# LOGGERS ENDPOINT (LoggersEndpoint)
+#缓存响应的最大时间。
+management.endpoint.loggers.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用记录器端点。
+management.endpoint.loggers.enabled=true # Whether to enable the loggers endpoint.
+
+# REQUEST MAPPING ENDPOINT  (MappingsEndpoint)
+#缓存响应的最大时间。
+management.endpoint.mappings.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用映射端点。
+management.endpoint.mappings.enabled=true # Whether to enable the mappings endpoint.
+
+# METRICS ENDPOINT (MetricsEndpoint)
+#缓存响应的最大时间。
+management.endpoint.metrics.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用度量指标端点。
+management.endpoint.metrics.enabled=true # Whether to enable the metrics endpoint.
+
+# PROMETHEUS ENDPOINT (PrometheusScrapeEndpoint)
+#缓存响应的最大时间。
+management.endpoint.prometheus.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用普罗米修斯端点。
+management.endpoint.prometheus.enabled=true # Whether to enable the prometheus endpoint.
+
+# SCHEDULED TASKS ENDPOINT (ScheduledTasksEndpoint)
+#缓存响应的最大时间。
+management.endpoint.scheduledtasks.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用scheduledtasks端点。
+management.endpoint.scheduledtasks.enabled=true # Whether to enable the scheduledtasks endpoint.
+
+# SESSIONS ENDPOINT (SessionsEndpoint)
+#是否启用会话端点。
+management.endpoint.sessions.enabled=true # Whether to enable the sessions endpoint.
+
+# SHUTDOWN ENDPOINT (ShutdownEndpoint)
+#是否启用关闭端点。
+management.endpoint.shutdown.enabled=false # Whether to enable the shutdown endpoint.
+
+# THREAD DUMP ENDPOINT (ThreadDumpEndpoint)
+#缓存响应的最大时间。
+management.endpoint.threaddump.cache.time-to-live=0ms # Maximum time that a response can be cached.
+#是否启用threaddump端点。
+management.endpoint.threaddump.enabled=true # Whether to enable the threaddump endpoint.
+
+# HEALTH INDICATORS
+#是否启用数据库健康检查。
+management.health.db.enabled=true # Whether to enable database health check.
+#是否启用Cassandra健康检查。
+management.health.cassandra.enabled=true # Whether to enable Cassandra health check.
+#是否启用Couchbase健康检查。
+management.health.couchbase.enabled=true # Whether to enable Couchbase health check.
+#是否启用默认健康指示器。
+management.health.defaults.enabled=true # Whether to enable default health indicators.
+#是否启用磁盘空间健康检查。
+management.health.diskspace.enabled=true # Whether to enable disk space health check.
+#用于计算可用磁盘空间的路径。
+management.health.diskspace.path= # Path used to compute the available disk space.
+#应该可用的最小磁盘空间。
+management.health.diskspace.threshold=10MB # Minimum disk space that should be available.
+#是否启用弹性搜索健康检查。
+management.health.elasticsearch.enabled=true # Whether to enable Elasticsearch health check.
+#逗号分隔指数的名字。
+management.health.elasticsearch.indices= # Comma-separated index names.
+#等待集群响应的时间到了。
+management.health.elasticsearch.response-timeout=100ms # Time to wait for a response from the cluster.
+#是否启用流感数据库健康检查。
+management.health.influxdb.enabled=true # Whether to enable InfluxDB health check.
+#是否启用JMS健康检查。
+management.health.jms.enabled=true # Whether to enable JMS health check.
+#是否启用LDAP健康检查。
+management.health.ldap.enabled=true # Whether to enable LDAP health check.
+#是否启用邮件健康检查。
+management.health.mail.enabled=true # Whether to enable Mail health check.
+#是否启用MongoDB健康检查。
+management.health.mongo.enabled=true # Whether to enable MongoDB health check.
+#是否启用Neo4j健康检查。
+management.health.neo4j.enabled=true # Whether to enable Neo4j health check.
+#是否启用RabbitMQ健康检查。
+management.health.rabbit.enabled=true # Whether to enable RabbitMQ health check.
+#是否启用Redis健康检查。
+management.health.redis.enabled=true # Whether to enable Redis health check.
+#是否启用Solr健康检查。
+management.health.solr.enabled=true # Whether to enable Solr health check.
+#将健康状态映射到HTTP状态代码。默认情况下，注册的健康状态映射到合理的默认值(例如，映射到200)。
+management.health.status.http-mapping= # Mapping of health statuses to HTTP status codes. By default, registered health statuses map to sensible defaults (for example, UP maps to 200).
+#按严重程度排序的以逗号分隔的健康状态列表。
+management.health.status.order=DOWN,OUT_OF_SERVICE,UP,UNKNOWN # Comma-separated list of health statuses in order of severity.
+
+# HTTP TRACING (HttpTraceProperties)
+#是否启用HTTP请求-响应跟踪。
+management.trace.http.enabled=true # Whether to enable HTTP request-response tracing.
+#要包含在跟踪中的项。
+management.trace.http.include=request-headers,response-headers,cookies,errors # Items to be included in the trace.
+
+# INFO CONTRIBUTORS (InfoContributorProperties)
+#是否启用build info。
+management.info.build.enabled=true # Whether to enable build info.
+#是否启用默认信息提供程序。
+management.info.defaults.enabled=true # Whether to enable default info contributors.
+#是否启用环境信息。
+management.info.env.enabled=true # Whether to enable environment info.
+#是否启用git信息。
+management.info.git.enabled=true # Whether to enable git info.
+#用于公开git信息的模式。
+management.info.git.mode=simple # Mode to use to expose git information.
+
+# METRICS
+#具有指定名称的表id启动时期望观察到的最大值。
+management.metrics.distribution.maximum-expected-value.*= # Maximum value that meter IDs starting-with the specified name are expected to observe.
+#期望以指定名称启动的表id所观察到的最小值。
+management.metrics.distribution.minimum-expected-value.*= # Minimum value that meter IDs starting-with the specified name are expected to observe.
+#使用指定名称将特定计算的不可聚合百分比发送到后端，用于启动表id。
+management.metrics.distribution.percentiles.*= # Specific computed non-aggregable percentiles to ship to the backend for meter IDs starting-with the specified name.
+#以指定名称开头的表id是否应该发布百分比直方图。
+management.metrics.distribution.percentiles-histogram.*= # Whether meter IDs starting with the specified name should publish percentile histograms.
+#开始使用指定名称的表id的特定SLA边界。最长的比赛获胜。
+management.metrics.distribution.sla.*= # Specific SLA boundaries for meter IDs starting-with the specified name. The longest match wins.
+#是否启用具有指定名称的表id。最长的比赛获胜，键“全部”也可以用来配置所有的米。
+management.metrics.enable.*= # Whether meter IDs starting-with the specified name should be enabled. The longest match wins, the key `all` can also be used to configure all meters.
+#AppOptics API令牌。
+management.metrics.export.appoptics.api-token= # AppOptics API token.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.appoptics.batch-size=500 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.appoptics.connect-timeout=5s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.appoptics.enabled=true # Whether exporting of metrics to this backend is enabled.
+#当将度量传递到AppOptics时，将映射到“@host”的标记。
+management.metrics.export.appoptics.host-tag=instance # Tag that will be mapped to "@host" when shipping metrics to AppOptics.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.appoptics.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.appoptics.read-timeout=10s # Read timeout for requests to this backend.
+#步骤大小(即报告使用频率)。
+management.metrics.export.appoptics.step=1m # Step size (i.e. reporting frequency) to use.
+#将度量传递到的URI。
+management.metrics.export.appoptics.uri=https://api.appoptics.com/v1/measurements # URI to ship metrics to.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.atlas.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#从LWC服务刷新配置设置的频率。
+management.metrics.export.atlas.config-refresh-frequency=10s # Frequency for refreshing config settings from the LWC service.
+#从LWC服务订阅的时间到了。
+management.metrics.export.atlas.config-time-to-live=150s # Time to live for subscriptions from the LWC service.
+#检索当前订阅的Atlas LWC端点的URI。
+management.metrics.export.atlas.config-uri=http://localhost:7101/lwc/api/v1/expressions/local-dev # URI for the Atlas LWC endpoint to retrieve current subscriptions.
+#此后端请求的连接超时。
+management.metrics.export.atlas.connect-timeout=1s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.atlas.enabled=true # Whether exporting of metrics to this backend is enabled.
+#用于Atlas LWC端点的URI，用于计算订阅的数据。
+management.metrics.export.atlas.eval-uri=http://localhost:7101/lwc/api/v1/evaluate # URI for the Atlas LWC endpoint to evaluate the data for a subscription.
+#是否启用流向Atlas LWC的流。
+management.metrics.export.atlas.lwc-enabled=false # Whether to enable streaming to Atlas LWC.
+#是时候为没有任何活动的电表而活了。在此期间之后，仪表将被认为是过期的，将不会得到报告。
+management.metrics.export.atlas.meter-time-to-live=15m # Time to live for meters that do not have any activity. After this period the meter will be considered expired and will not get reported.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.atlas.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.atlas.read-timeout=10s # Read timeout for requests to this backend.
+#步骤大小(即报告使用频率)。
+management.metrics.export.atlas.step=1m # Step size (i.e. reporting frequency) to use.
+#Atlas服务器的URI。
+management.metrics.export.atlas.uri=http://localhost:7101/api/v1/publish # URI of the Atlas server.
+#Datadog API键。
+management.metrics.export.datadog.api-key= # Datadog API key.
+#Datadog应用程序的关键。不是严格要求，但是通过向Datadog发送表描述、类型和基本单元来改进Datadog体验。
+management.metrics.export.datadog.application-key= # Datadog application key. Not strictly required, but improves the Datadog experience by sending meter descriptions, types, and base units to Datadog.
+#每个请求用于此后端的度量值。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.datadog.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.datadog.connect-timeout=1s # Connection timeout for requests to this backend.
+#是否将描述元数据发布到Datadog。关闭此选项以最小化发送的元数据量。
+management.metrics.export.datadog.descriptions=true # Whether to publish descriptions metadata to Datadog. Turn this off to minimize the amount of metadata sent.
+#是否支持将指标导出到此后端。
+management.metrics.export.datadog.enabled=true # Whether exporting of metrics to this backend is enabled.
+#当将指标传递到Datadog时，将映射到“主机”的#标记。
+management.metrics.export.datadog.host-tag=instance # Tag that will be mapped to "host" when shipping metrics to Datadog.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.datadog.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.datadog.read-timeout=10s # Read timeout for requests to this backend.
+#步骤大小(即报告使用频率)。
+management.metrics.export.datadog.step=1m # Step size (i.e. reporting frequency) to use.
+## URI以将指标发送到。如果您需要在到Datadog的途中将度量标准发布到内部代理，那么您可以使用它定义代理的位置。
+management.metrics.export.datadog.uri=https://app.datadoghq.com # URI to ship metrics to. If you need to publish metrics to an internal proxy en-route to Datadog, you can define the location of the proxy with this.
+#Dynatrace身份验证令牌。
+management.metrics.export.dynatrace.api-token= # Dynatrace authentication token.
+#每个请求用于此后端的度量值。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.dynatrace.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.dynatrace.connect-timeout=1s # Connection timeout for requests to this backend.
+#将指标导出到Dynatrace的自定义设备的ID。
+management.metrics.export.dynatrace.device-id= # ID of the custom device that is exporting metrics to Dynatrace.
+#是否启用将指标导出到此后端。
+management.metrics.export.dynatrace.enabled=true # Whether exporting of metrics to this backend is enabled.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.dynatrace.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.dynatrace.read-timeout=10s # Read timeout for requests to this backend.
+#步骤大小(即报告使用频率)。
+management.metrics.export.dynatrace.step=1m # Step size (i.e. reporting frequency) to use.
+#用于导出度量的技术类型。用于在Dynatrace UI中以逻辑技术名称对度量进行分组。
+management.metrics.export.dynatrace.technology-type=java # Technology type for exported metrics. Used to group metrics under a logical technology name in the Dynatrace UI.
+#将度量传递到的URI。应用于SaaS、自管理实例或通过内部代理进行路由。
+management.metrics.export.dynatrace.uri= # URI to ship metrics to. Should be used for SaaS, self managed instances or to en-route through an internal proxy.
+#如果索引不存在，是否自动创建索引。
+management.metrics.export.elastic.auto-create-index=true # Whether to create the index automatically if it does not exist.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.elastic.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.elastic.connect-timeout=1s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.elastic.enabled=true # Whether exporting of metrics to this backend is enabled.
+#将指标导出到主机。
+management.metrics.export.elastic.host=http://localhost:9200 # Host to export metrics to.
+#将指标导出到的索引。
+management.metrics.export.elastic.index=metrics # Index to export metrics to.
+#用于滚动索引的索引日期格式。加在索引名后面，前面有一个'-'。
+management.metrics.export.elastic.index-date-format=yyyy-MM # Index date format used for rolling indices. Appended to the index name, preceded by a '-'.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.elastic.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#弹性服务器的登录密码。
+management.metrics.export.elastic.password= # Login password of the Elastic server.
+#读取到此后端请求的超时。
+management.metrics.export.elastic.read-timeout=10s # Read timeout for requests to this backend.
+#步骤大小(即报告使用频率)。
+management.metrics.export.elastic.step=1m # Step size (i.e. reporting frequency) to use.
+#时间戳字段的名称。
+management.metrics.export.elastic.timestamp-field-name=@timestamp # Name of the timestamp field.
+#弹性服务器的登录用户。
+management.metrics.export.elastic.user-name= # Login user of the Elastic server.
+#UDP寻址模式，单播或多播。
+management.metrics.export.ganglia.addressing-mode=multicast # UDP addressing mode, either unicast or multicast.
+#用于报告持续时间的基本时间单位。
+management.metrics.export.ganglia.duration-units=milliseconds # Base time unit used to report durations.
+#是否支持将指标导出到Ganglia。
+management.metrics.export.ganglia.enabled=true # Whether exporting of metrics to Ganglia is enabled.
+#接收导出指标的Ganglia服务器主机。
+management.metrics.export.ganglia.host=localhost # Host of the Ganglia server to receive exported metrics.
+#用于接收导出指标的Ganglia服务器端口。
+management.metrics.export.ganglia.port=8649 # Port of the Ganglia server to receive exported metrics.
+#Ganglia协议版本。必须是3.1或3.0。
+management.metrics.export.ganglia.protocol-version=3.1 # Ganglia protocol version. Must be either 3.1 or 3.0.
+#用于报告费率的基本时间单位。
+management.metrics.export.ganglia.rate-units=seconds # Base time unit used to report rates.
+#步骤大小(即报告使用频率)。
+management.metrics.export.ganglia.step=1m # Step size (i.e. reporting frequency) to use.
+#是时候为Ganglia上的指标而活了。将多播生存时间设置为大于主机之间跳(路由器)数量的一个。
+management.metrics.export.ganglia.time-to-live=1 # Time to live for metrics on Ganglia. Set the multi-cast Time-To-Live to be one greater than the number of hops (routers) between the hosts.
+#用于报告持续时间的基本时间单位。
+management.metrics.export.graphite.duration-units=milliseconds # Base time unit used to report durations.
+#是否支持将指标导出到Graphite。
+management.metrics.export.graphite.enabled=true # Whether exporting of metrics to Graphite is enabled.
+#接收导出指标的Graphite服务器主机。
+management.metrics.export.graphite.host=localhost # Host of the Graphite server to receive exported metrics.
+#接收导出指标的Graphite服务器端口。
+management.metrics.export.graphite.port=2004 # Port of the Graphite server to receive exported metrics.
+#传送数据到Graphite时使用的协议。
+management.metrics.export.graphite.protocol=pickled # Protocol to use while shipping data to Graphite.
+#用于报告费率的基本时间单位
+management.metrics.export.graphite.rate-units=seconds # Base time unit used to report rates.
+#步骤大小(即报告使用频率)。
+management.metrics.export.graphite.step=1m # Step size (i.e. reporting frequency) to use.
+#对于默认的命名约定，将指定的标记键转换为度量前缀的一部分。
+management.metrics.export.graphite.tags-as-prefix= # For the default naming convention, turn the specified tag keys into part of the metric prefix.
+#Humio API令牌。
+management.metrics.export.humio.api-token= # Humio API token.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.humio.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.humio.connect-timeout=5s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.humio.enabled=true # Whether exporting of metrics to this backend is enabled.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.humio.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.humio.read-timeout=10s # Read timeout for requests to this backend.
+#要向其发布度量标准的存储库的名称。
+management.metrics.export.humio.repository=sandbox # Name of the repository to publish metrics to.
+#步骤大小(即报告使用频率)。
+management.metrics.export.humio.step=1m # Step size (i.e. reporting frequency) to use.
+#描述用于存储指标的数据源的Humio标记。Humio标签是一个不同于Micrometer标签的概念。Micrometer的标签是用来划分尺寸边界的。
+management.metrics.export.humio.tags.*= # Humio tags describing the data source in which metrics will be stored. Humio tags are a distinct concept from Micrometer's tags. Micrometer's tags are used to divide metrics along dimensional boundaries.
+#将度量传递到的URI。如果您需要在去往Humio的途中向内部代理发布度量，那么您可以使用它定义代理的位置。
+management.metrics.export.humio.uri=https://cloud.humio.com # URI to ship metrics to. If you need to publish metrics to an internal proxy en-route to Humio, you can define the location of the proxy with this.
+#在尝试向流入数据库发布指标之前，是否创建不存在的流入数据库。
+management.metrics.export.influx.auto-create-db=true # Whether to create the Influx database if it does not exist before attempting to publish metrics to it.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.influx.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#是否启用GZIP压缩批量发布到内流的度量。
+management.metrics.export.influx.compressed=true # Whether to enable GZIP compression of metrics batches published to Influx.
+#此后端请求的连接超时。
+management.metrics.export.influx.connect-timeout=1s # Connection timeout for requests to this backend.
+#为每个点写一致性。
+management.metrics.export.influx.consistency=one # Write consistency for each point.
+#标记，将映射到“主机”时，运送指标流入。
+management.metrics.export.influx.db=mydb # Tag that will be mapped to "host" when shipping metrics to Influx.
+#是否启用将指标导出到此后端。
+management.metrics.export.influx.enabled=true # Whether exporting of metrics to this backend is enabled.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.influx.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#流入服务器的登录密码。
+management.metrics.export.influx.password= # Login password of the Influx server.
+#读取到此后端请求的超时。
+management.metrics.export.influx.read-timeout=10s # Read timeout for requests to this backend.
+#流入应在当前数据库中保留数据的时间段。
+management.metrics.export.influx.retention-duration= # Time period for which Influx should retain data in the current database.
+#由碎片组覆盖的时间范围。
+management.metrics.export.influx.retention-shard-duration= # Time range covered by a shard group.
+#要使用的保留策略(如果没有指定，则将内流写入默认保留策略)。
+management.metrics.export.influx.retention-policy= # Retention policy to use (Influx writes to the DEFAULT retention policy if one is not specified).
+#集群中存储了多少数据副本。
+management.metrics.export.influx.retention-replication-factor= # How many copies of the data are stored in the cluster.
+#步骤大小(即报告使用频率)。
+management.metrics.export.influx.step=1m # Step size (i.e. reporting frequency) to use.
+#流入服务器的URI
+management.metrics.export.influx.uri=http://localhost:8086 # URI of the Influx server.
+#流入服务器的登录用户。
+management.metrics.export.influx.user-name= # Login user of the Influx server.
+#度量JMX域名。
+management.metrics.export.jmx.domain=metrics # Metrics JMX domain name.
+#是否支持将指标导出到JMX。
+management.metrics.export.jmx.enabled=true # Whether exporting of metrics to JMX is enabled.
+#步骤大小(即报告使用频率)。
+management.metrics.export.jmx.step=1m # Step size (i.e. reporting frequency) to use.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.kairos.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.kairos.connect-timeout=1s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.kairos.enabled=true # Whether exporting of metrics to this backend is enabled.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.kairos.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#KairosDB服务器的登录密码。
+management.metrics.export.kairos.password= # Login password of the KairosDB server.
+#读取到此后端请求的超时。
+management.metrics.export.kairos.read-timeout=10s # Read timeout for requests to this backend.
+#步骤大小(即报告使用频率)。
+management.metrics.export.kairos.step=1m # Step size (i.e. reporting frequency) to use.
+#KairosDB服务器的URI。
+management.metrics.export.kairos.uri= localhost:8080/api/v1/datapoints # URI of the KairosDB server.
+#KairosDB服务器的登录用户。
+management.metrics.export.kairos.user-name= # Login user of the KairosDB server.
+#New Relic帐号ID。
+management.metrics.export.newrelic.account-id= # New Relic account ID.
+#New Relic API键。
+management.metrics.export.newrelic.api-key= # New Relic API key.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.newrelic.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.newrelic.connect-timeout=1s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.newrelic.enabled=true # Whether exporting of metrics to this backend is enabled.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.newrelic.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.newrelic.read-timeout=10s # Read timeout for requests to this backend.
+#步骤大小(即报告使用频率)。
+management.metrics.export.newrelic.step=1m # Step size (i.e. reporting frequency) to use.
+#将度量传递到的URI。
+management.metrics.export.newrelic.uri=https://insights-collector.newrelic.com # URI to ship metrics to.
+#是否允许将描述作为擦伤有效载荷的一部分发布给普罗米修斯。关闭此选项，以最小化每次刮板发送的数据量。
+management.metrics.export.prometheus.descriptions=true # Whether to enable publishing descriptions as part of the scrape payload to Prometheus. Turn this off to minimize the amount of data sent on each scrape.
+#是否启用向普罗米修斯导出度量。
+management.metrics.export.prometheus.enabled=true # Whether exporting of metrics to Prometheus is enabled.
+#步骤大小(即报告使用频率)。
+management.metrics.export.prometheus.step=1m # Step size (i.e. reporting frequency) to use.
+#Pushgateway的基本URL。
+management.metrics.export.prometheus.pushgateway.base-url=localhost:9091 # Base URL for the Pushgateway.
+#通过普罗米修斯Pushgateway启用发布。
+management.metrics.export.prometheus.pushgateway.enabled=false # Enable publishing via a Prometheus Pushgateway.
+#为推送的指标分组键。
+management.metrics.export.prometheus.pushgateway.grouping-key= # Grouping key for the pushed metrics.
+#此应用程序实例的作业标识符。
+management.metrics.export.prometheus.pushgateway.job= # Job identifier for this application instance.
+#频率，以推动指标。
+management.metrics.export.prometheus.pushgateway.push-rate=1m # Frequency with which to push metrics.
+#关闭时应执行的操作。
+management.metrics.export.prometheus.pushgateway.shutdown-operation= # Operation that should be performed on shutdown.
+#SignalFX访问令牌。
+management.metrics.export.signalfx.access-token= # SignalFX access token.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.signalfx.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.signalfx.connect-timeout=1s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.signalfx.enabled=true # Whether exporting of metrics to this backend is enabled.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.signalfx.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.signalfx.read-timeout=10s # Read timeout for requests to this backend.
+#唯一标识向SignalFx发布指标的应用程序实例。默认为本地主机名。
+management.metrics.export.signalfx.source= # Uniquely identifies the app instance that is publishing metrics to SignalFx. Defaults to the local host name.
+#步骤大小(即报告使用频率)。
+management.metrics.export.signalfx.step=10s # Step size (i.e. reporting frequency) to use.
+#将度量传递到的URI。
+management.metrics.export.signalfx.uri=https://ingest.signalfx.com # URI to ship metrics to.
+#在没有其他导出器的情况下，是否启用将指标导出到内存中的后端。
+management.metrics.export.simple.enabled=true # Whether, in the absence of any other exporter, exporting of metrics to an in-memory backend is enabled.
+#计算模式。
+management.metrics.export.simple.mode=cumulative # Counting mode.
+#步骤大小(即报告使用频率)。
+management.metrics.export.simple.step=1m # Step size (i.e. reporting frequency) to use.
+#是否支持将度量导出到StatsD。
+management.metrics.export.statsd.enabled=true # Whether exporting of metrics to StatsD is enabled.
+#使用StatsD线协议。
+management.metrics.export.statsd.flavor=datadog # StatsD line protocol to use.
+#接收导出指标的StatsD服务器的主机。
+management.metrics.export.statsd.host=localhost # Host of the StatsD server to receive exported metrics.
+#单个有效负载的总长度应该保持在网络的MTU中。
+management.metrics.export.statsd.max-packet-length=1400 # Total length of a single payload should be kept within your network's MTU.
+#多久对量表进行一次民意调查。当测量被轮询时，它的值被重新计算，如果值发生了变化(或者publishunchangedmeter为真)，它将被发送到StatsD服务器。
+management.metrics.export.statsd.polling-frequency=10s # How often gauges will be polled. When a gauge is polled, its value is recalculated and if the value has changed (or publishUnchangedMeters is true), it is sent to the StatsD server.
+#StatsD服务器的端口来接收导出的指标。
+management.metrics.export.statsd.port=8125 # Port of the StatsD server to receive exported metrics.
+#是否将未更改的电表发送到StatsD服务器。
+management.metrics.export.statsd.publish-unchanged-meters=true # Whether to send unchanged meters to the StatsD server.
+#直接将指标发布到Wavefront API主机时使用的API令牌。
+management.metrics.export.wavefront.api-token= # API token used when publishing metrics directly to the Wavefront API host.
+#用于此后端的每个请求的度量数。如果找到更多的度量，那么将发出多个请求。
+management.metrics.export.wavefront.batch-size=10000 # Number of measurements per request to use for this backend. If more measurements are found, then multiple requests will be made.
+#此后端请求的连接超时。
+management.metrics.export.wavefront.connect-timeout=1s # Connection timeout for requests to this backend.
+#是否启用将指标导出到此后端。
+management.metrics.export.wavefront.enabled=true # Whether exporting of metrics to this backend is enabled.
+#当在Wavefront UI中查看时，将来自此应用程序白盒检测的指标与来自其他波前集成的指标分开的全局前缀。
+management.metrics.export.wavefront.global-prefix= # Global prefix to separate metrics originating from this app's white box instrumentation from those originating from other Wavefront integrations when viewed in the Wavefront UI.
+#与metrics发布调度程序一起使用的线程数。
+management.metrics.export.wavefront.num-threads=2 # Number of threads to use with the metrics publishing scheduler.
+#读取到此后端请求的超时。
+management.metrics.export.wavefront.read-timeout=10s # Read timeout for requests to this backend.
+#应用程序实例的唯一标识符，该标识符是发布到Wavefront的度量标准的源。默认为本地主机名。
+management.metrics.export.wavefront.source= # Unique identifier for the app instance that is the source of metrics being published to Wavefront. Defaults to the local host name.
+#步骤大小(即报告使用频率)。
+management.metrics.export.wavefront.step=10s # Step size (i.e. reporting frequency) to use.
+#URI将度量传递到。
+management.metrics.export.wavefront.uri=https://longboard.wavefront.com # URI to ship metrics to.
+#是否自动配置的MeterRegistry实现应该绑定到指标上的全局静态注册表。
+management.metrics.use-global-registry=true # Whether auto-configured MeterRegistry implementations should be bound to the global static registry on Metrics.
+#应用于每个仪表的通用标记。
+management.metrics.tags.*= # Common tags that are applied to every meter.
+#允许的唯一URI标记值的最大数量。在达到标记值的最大数量之后，过滤器将拒绝具有附加标记值的指标。
+management.metrics.web.client.max-uri-tags=100 # Maximum number of unique URI tag values allowed. After the max number of tag values is reached, metrics with additional tag values are denied by filter.
+#发送请求的度量的名称。
+management.metrics.web.client.requests-metric-name=http.client.requests # Name of the metric for sent requests.
+#由Spring MVC、WebFlux或Jersey处理的请求是否应该自动计时。
+management.metrics.web.server.auto-time-requests=true # Whether requests handled by Spring MVC, WebFlux or Jersey should be automatically timed.
+#允许的唯一URI标记值的最大数量。在达到标记值的最大数量之后，过滤器将拒绝具有附加标记值的指标。
+management.metrics.web.server.max-uri-tags=100 # Maximum number of unique URI tag values allowed. After the max number of tag values is reached, metrics with additional tag values are denied by filter.
+#接收到的请求的度量的名称。
+management.metrics.web.server.requests-metric-name=http.server.requests # Name of the metric for received requests.
+
+
+# ----------------------------------------
+# DEVTOOLS PROPERTIES
+# ----------------------------------------
+
+# DEVTOOLS (DevToolsProperties)
+#是否启用开发属性默认值。
+spring.devtools.add-properties=true # Whether to enable development property defaults.
+#是否启用与livereload.com兼容的服务器。
+spring.devtools.livereload.enabled=true # Whether to enable a livereload.com-compatible server.
+#服务器端口。
+spring.devtools.livereload.port=35729 # Server port.
+#不应触发完全重启的其他模式。
+spring.devtools.restart.additional-exclude= # Additional patterns that should be excluded from triggering a full restart.
+#要监视更改的其他路径。
+spring.devtools.restart.additional-paths= # Additional paths to watch for changes.
+#是否启用自动重启。
+spring.devtools.restart.enabled=true # Whether to enable automatic restart.
+#应该排除触发完全重启的模式。
+spring.devtools.restart.exclude=META-INF/maven/**,META-INF/resources/**,resources/**,static/**,public/**,templates/**,**/*Test.class,**/*Tests.class,git.properties,META-INF/build-info.properties # Patterns that should be excluded from triggering a full restart.
+#是否在重新启动时记录条件计算增量。
+spring.devtools.restart.log-condition-evaluation-delta=true # Whether to log the condition evaluation delta upon restart.
+#轮询类路径更改之间等待的时间量。
+spring.devtools.restart.poll-interval=1s # Amount of time to wait between polling for classpath changes.
+#在重新启动之前，不需要任何类路径更改而需要大量的安静时间。
+spring.devtools.restart.quiet-period=400ms # Amount of quiet time required without any classpath changes before a restart is triggered.
+#更改后触发重启检查的特定文件的名称。如果没有指定，任何类路径文件更改都会触发重新启动。
+spring.devtools.restart.trigger-file= # Name of a specific file that, when changed, triggers the restart check. If not specified, any classpath file change triggers the restart.
+
+# REMOTE DEVTOOLS (RemoteDevToolsProperties)
+#用于处理远程连接的上下文路径。
+spring.devtools.remote.context-path=/.~~spring-boot!~ # Context path used to handle the remote connection.
+#用于连接远程应用程序的代理的主机。
+spring.devtools.remote.proxy.host= # The host of the proxy to use to connect to the remote application.
+#用于连接远程应用程序的代理的端口。
+spring.devtools.remote.proxy.port= # The port of the proxy to use to connect to the remote application.
+#是否启用远程重启。
+spring.devtools.remote.restart.enabled=true # Whether to enable remote restart.
+#建立连接(启用远程支持)所需的共享秘密。
+spring.devtools.remote.secret= # A shared secret required to establish a connection (required to enable remote support).
+#用于传输共享秘密的HTTP报头。
+spring.devtools.remote.secret-header-name=X-AUTH-TOKEN # HTTP header used to transfer the shared secret.
+
+
+# ----------------------------------------
+# TESTING PROPERTIES
+# ----------------------------------------
+
+#要替换的现有数据源的类型。
+spring.test.database.replace=any # Type of existing DataSource to replace.
+#MVC打印选项。
+spring.test.mockmvc.print=default # MVC Print option.
