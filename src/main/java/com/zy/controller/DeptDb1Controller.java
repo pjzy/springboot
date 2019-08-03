@@ -16,7 +16,8 @@ import java.util.List;
 @Api("数据库1部门查询")
 @RestController
 @RequestMapping("/deptdb1")
-public class DeptDB1Controller {
+public class DeptDb1Controller {
+
 
     @Autowired
     private DeptTest1Service service;
